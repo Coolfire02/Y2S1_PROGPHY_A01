@@ -27,7 +27,7 @@ void SceneKinematics::Init()
 
 	m_ghost = new GameObject(GameObject::GO_BALL);
 	//Exercise 1: construct 10 GameObject with type GO_BALL and add into m_goList
-	for (int i = 0; i < 10; i++) {
+	for (int i = 0; i < 100; i++) {
 		m_goList.push_back(new GameObject(GameObject::GO_BALL));
 	}
 }

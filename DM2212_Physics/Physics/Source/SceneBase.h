@@ -47,6 +47,7 @@ public:
 		GEO_TEXT,
 		GEO_BALL,
 		GEO_CUBE,
+		GEO_SHIP,
 		NUM_GEOMETRY,
 	};
 public:

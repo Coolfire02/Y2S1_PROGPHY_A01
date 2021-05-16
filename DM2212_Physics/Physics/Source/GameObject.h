@@ -10,10 +10,14 @@ struct GameObject
 		GO_NONE = 0,
 		GO_BALL,
 		GO_CUBE,
+		GO_ASTEROID,
+		GO_SHIP,
+		GO_BULLET,
 		GO_TOTAL, //must be last
 	};
 	GAMEOBJECT_TYPE type;
 	Vector3 pos;
+	float angle;
 	Vector3 vel;
 	Vector3 scale;
 	bool active;

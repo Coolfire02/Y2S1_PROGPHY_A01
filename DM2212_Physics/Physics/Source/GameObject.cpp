@@ -1,9 +1,10 @@
 
 #include "GameObject.h"
 
-GameObject::GameObject(GAMEOBJECT_TYPE typeValue) 
+GameObject::GameObject(GAMEOBJECT_TYPE typeValue)
 	: type(typeValue),
 	scale(1, 1, 1),
+	angle(0.f),
 	active(false),
 	mass(1.f)
 {
