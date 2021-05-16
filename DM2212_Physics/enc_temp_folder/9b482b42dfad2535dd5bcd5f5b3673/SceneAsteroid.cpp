@@ -210,7 +210,7 @@ void SceneAsteroid::Update(double dt)
 				go->pos += go->vel * dt * m_speed;
 			}
 
-			else if (go->type == GameObject::GO_ASTEROID)
+			if (go->type == GameObject::GO_ASTEROID)
 			{
 
 				go->pos += go->vel * dt * m_speed;
