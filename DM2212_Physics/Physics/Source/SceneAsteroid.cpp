@@ -15,6 +15,9 @@ void SceneAsteroid::Init()
 {
 	SceneBase::Init();
 
+	//Elapsed time init
+	elapsed = 0.0f;
+
 	//Calculating aspect ratio
 	m_worldHeight = 100.f;
 	m_worldWidth = m_worldHeight * (float)Application::GetWindowWidth() / Application::GetWindowHeight();
@@ -33,6 +36,10 @@ void SceneAsteroid::Init()
 	//Exercise 2b: Initialize m_lives and m_score
 	m_lives = 3;
 	m_score = 0;
+
+	//Initiate Bullet Cooldown Timer
+	bulletCD = 0.1f;
+	lastBulletShot = elapsed;
 
 	//Exercise 2c: Construct m_ship, set active, type, scale and pos
 	m_ship = new GameObject(GameObject::GO_SHIP);
@@ -62,6 +69,7 @@ GameObject* SceneAsteroid::FetchGO()
 void SceneAsteroid::Update(double dt)
 {
 	SceneBase::Update(dt);
+	elapsed += dt;
 
 	//Calculating aspect ratio
 	m_worldHeight = 100.f;
@@ -115,8 +123,20 @@ void SceneAsteroid::Update(double dt)
 	}
 
 	//Exercise 14: use a key to spawn a bullet
+		//Exercise 15: limit the spawn rate of bullets
+	if (Application::IsKeyPressed(VK_SPACE) && elapsed-bulletCD > bulletCD)
+	{
+		lastBulletShot = elapsed;
+		GameObject* unused = FetchGO();
+		unused->active = true;
+		unused->type = GameObject::GO_BULLET;
+		unused->scale = Vector3(0.2f, 0.2f, 0.2f);
 
-	//Exercise 15: limit the spawn rate of bullets
+		Vector3 ship_dir = Vector3(cos(Math::DegreeToRadian(m_ship->angle)), sin(Math::DegreeToRadian(m_ship->angle)), 0);
+
+		unused->pos = m_ship->pos + ship_dir;
+		unused->vel = ship_dir * BULLET_SPEED;
+	}
 
 	//Mouse Section
 	static bool bLButtonState = false;
@@ -124,15 +144,6 @@ void SceneAsteroid::Update(double dt)
 	{
 		bLButtonState = true;
 		std::cout << "LBUTTON DOWN" << std::endl;
-
-		GameObject* unused = FetchGO();
-		unused->active = true;
-		unused->type = GameObject::GO_BULLET;
-		unused->scale = Vector3(0.2f, 0.2f, 0.2f);
-		unused->pos = m_ship->pos;
-		unused->vel = Vector3(BULLET_SPEED * cos(Math::DegreeToRadian(m_ship->angle)), 
-							BULLET_SPEED * sin(Math::DegreeToRadian(m_ship->angle)), 0);
-		//Vector3 v = unused->vel;
 	}
 	else if(bLButtonState && !Application::IsMousePressed(0))
 	{
@@ -163,38 +174,24 @@ void SceneAsteroid::Update(double dt)
 
 	//Move Ship
 	m_ship->pos += m_ship->vel * dt * m_speed;
-	this->WarpObjectOnScreen(m_ship);
+	this->WrapObjectOnScreen(m_ship);
 
 	//Rotate Ship
 	//Calculate Angle
-	if (m_ship->vel.y != 0)
+	if (m_ship->vel.x != 0)
 	{
-		
+		//TODO: Better angle management (Cap at certain rates, or make it constant if dw the lagging feel)
 		float newA = Math::RadianToDegree(atan2f(m_ship->vel.y, m_ship->vel.x));
 		float aDiff = max(newA, m_ship->angle) - min(newA, m_ship->angle);
 		if (aDiff > 180) aDiff = aDiff - 360;
+
 		if (m_ship->angle < newA)
 			m_ship->angle += (aDiff) * dt * m_speed;
 		else if (m_ship->angle > newA)
 			m_ship->angle -= (aDiff) * dt * m_speed;
 
-		//float newA = atan(m_ship->vel.x / m_ship->vel.y);
-		//if (newA < 0) newA = 360 + newA;
-		//else if (newA > 360) newA = 0 + newA - 360;
-		//float aDiff = max(newA, m_ship->angle) - min(newA, m_ship->angle);
-		//if(newA != m_ship->angle)
-		//	m_ship->angle += (m_ship->angle > newA ? -aDiff : aDiff) * dt * m_speed;
-		//if (m_ship->angle < 0) m_ship->angle = 360 + m_ship->angle;
-		//else if (m_ship->angle > 360) m_ship->angle = 0 + m_ship->angle - 360;
-
-		//float newA = atan(m_ship->vel.x / m_ship->vel.y);
-		//if (newA < 0) newA = 360 + newA;
-		//else if (newA > 360) newA = 0 + newA - 360;
-		//float aDiff = max(newA, m_ship->angle) - min(newA, m_ship->angle);
-		//if (newA != m_ship->angle)
-		//	m_ship->angle += (m_ship->angle > newA ? -aDiff : aDiff) * dt * m_speed;
-		//if (m_ship->angle < 0) m_ship->angle = 360 + m_ship->angle;
-		//else if (m_ship->angle > 360) m_ship->angle = 0 + m_ship->angle - 360;
+		if (m_ship->angle < 0) m_ship->angle = 360 + m_ship->angle;
+		else if (m_ship->angle > 360) m_ship->angle = 0 + m_ship->angle - 360;
 	}
 
 
@@ -205,14 +202,35 @@ void SceneAsteroid::Update(double dt)
 		if(go->active)
 		{
 
+			//Bullet Management
 			if (go->type == GameObject::GO_BULLET)
 			{
 				go->pos += go->vel * dt * m_speed;
+				if (this->ObjectOffScreen(go)) {
+					go->active = false;
+					break; //No use for this object already
+				}
+				
+				//Collision checks with GO_AESTEROID, Handle game logic
+				for (auto& coll : m_goList) {
+					if (coll->active && go->type == GameObject::GO_ASTEROID)
+					{
+						if ((go->pos - coll->pos).Length() < go->scale.x + coll->scale.x) {
+							
+							//Game Logic: Delete Aesteroid & Bullet, add 2 to score
+							go->active = false;
+							coll->active = false;
+							m_score += 2;
+							break;
+						}
+					}
+				}
+
 			}
 
+			//Asteroid Handling
 			else if (go->type == GameObject::GO_ASTEROID)
 			{
-
 				go->pos += go->vel * dt * m_speed;
 
 				//Handle ship collision
@@ -229,13 +247,8 @@ void SceneAsteroid::Update(double dt)
 
 					break;
 				}
-
-				this->WarpObjectOnScreen(go);
+				this->WrapObjectOnScreen(go);
 			}
-
-			//Exercise 16: unspawn bullets when they leave screen
-
-			//Exercise 18: collision check between GO_BULLET and GO_ASTEROID
 		}
 	}
 }
@@ -254,7 +267,24 @@ void SceneAsteroid::ResetGame() {
 	m_ship->scale = Vector3(1, 1, 1);
 }
 
-bool SceneAsteroid::WarpObjectOnScreen(GameObject *go)
+bool SceneAsteroid::ObjectOffScreen(GameObject* go) 
+{
+	if (go->pos.x > (m_worldWidth + go->scale.x)) {
+		return true;
+	}
+	else if (go->pos.x < (0 - go->scale.x)) {
+		return true;
+	}
+	else if (go->pos.y > (m_worldHeight + go->scale.y)) {
+		return true;
+	}
+	else if (go->pos.y < (0 - go->scale.y)) {
+		return true;
+	}
+	return false;
+}
+
+bool SceneAsteroid::WrapObjectOnScreen(GameObject *go)
 {
 	if (go->pos.x > (m_worldWidth + go->scale.x)) {
 		go->pos.x = 0;

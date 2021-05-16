@@ -36,11 +36,14 @@ protected:
 	int m_objectCount;
 	int m_lives;
 	int m_score;
-private:
 
 	//Game Logic
 	void ResetGame();
-	bool WarpObjectOnScreen(GameObject*);
+	bool WrapObjectOnScreen(GameObject*);
+	bool ObjectOffScreen(GameObject*);
+	float bulletCD;
+	float lastBulletShot; //Associated with elapsed
+	float elapsed;
 };
 
 #endif
