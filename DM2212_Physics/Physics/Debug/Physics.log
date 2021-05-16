@@ -1,9 +1,41 @@
-﻿  SceneAsteroid.cpp
+﻿  Application.cpp
+  Camera.cpp
+  GameObject.cpp
+  LoadOBJ.cpp
+  LoadTGA.cpp
+  main.cpp
+  Mesh.cpp
+  MeshBuilder.cpp
+  SceneAsteroid.cpp
 C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneAsteroid.cpp(99,25): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
 C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneAsteroid.cpp(103,25): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneAsteroid.cpp(131,2): error C2059: syntax error: '}'
 C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneAsteroid.cpp(154,23): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneAsteroid.cpp(160,31): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneAsteroid.cpp(172,43): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
 C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneAsteroid.cpp(174,43): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
 C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneAsteroid.cpp(207,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  SceneBase.cpp
+  SceneKinematics.cpp
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneKinematics.cpp(56,20): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneKinematics.cpp(61,20): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneKinematics.cpp(82,52): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneKinematics.cpp(82,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneKinematics.cpp(83,50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneKinematics.cpp(83,30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneKinematics.cpp(99,52): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneKinematics.cpp(99,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneKinematics.cpp(122,61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneKinematics.cpp(122,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneKinematics.cpp(147,67): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneKinematics.cpp(147,39): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneKinematics.cpp(173,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneKinematics.cpp(174,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneKinematics.cpp(214,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneKinematics.cpp(215,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneKinematics.cpp(244,22): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneKinematics.cpp(248,20): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  shader.cpp
+  Utility.cpp
+  Generating Code...
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  Physics.vcxproj -> C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Debug\Physics.exe

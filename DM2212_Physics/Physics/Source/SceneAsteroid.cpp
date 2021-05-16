@@ -127,6 +127,11 @@ void SceneAsteroid::Update(double dt)
 
 		GameObject* unused = FetchGO();
 		unused->active = true;
+		unused->type = GameObject::GO_BULLET;
+		unused->scale = Vector3(0.2f, 0.2f, 0.2f);
+		unused->pos = m_ship->pos;
+		unused->vel = Vector3(BULLET_SPEED * cos(Math::DegreeToRadian(m_ship->angle)), 
+							BULLET_SPEED * sin(Math::DegreeToRadian(m_ship->angle)), 0);
 
 	}
 	else if(bLButtonState && !Application::IsMousePressed(0))
