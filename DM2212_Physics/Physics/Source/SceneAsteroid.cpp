@@ -124,7 +124,7 @@ void SceneAsteroid::Update(double dt)
 
 	//Exercise 14: use a key to spawn a bullet
 		//Exercise 15: limit the spawn rate of bullets
-	if (Application::IsKeyPressed(VK_SPACE) && elapsed-bulletCD > bulletCD)
+	if (Application::IsKeyPressed(VK_SPACE) && elapsed-lastBulletShot > bulletCD)
 	{
 		lastBulletShot = elapsed;
 		GameObject* unused = FetchGO();
