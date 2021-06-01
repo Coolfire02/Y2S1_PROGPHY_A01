@@ -14,10 +14,19 @@
 #include "SceneKinematics.h"
 #include "SceneAsteroid.h"
 
+#include "Scene_Menu.h"
+#include "Scene_GameL_One_One.h"
+#include "Scene_GameL_One_Two.h"
+#include "Scene_GameL_One_BOSS.h"
+
 GLFWwindow* m_window;
 const unsigned char FPS = 60; // FPS of this game
-const unsigned int frameTime = 1000 / FPS; // time for each frame
+float frameTime = 0.01666667; // time for each frame
 int m_width, m_height;
+
+int Application::currentScene = 0;
+int Application::prevGameScene = SCENE_LEVEL_ONE_ONE;
+bool Application::quit = false;
 
 //Define an error callback
 static void error_callback(int error, const char* description)
@@ -26,13 +35,16 @@ static void error_callback(int error, const char* description)
 	_fgetchar();
 }
 
+float Application::GetFrameTime() {
+	return frameTime;
+}
+
 //Define the key input callback
 static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, GL_TRUE);
 }
-
 
 void resize_callback(GLFWwindow* window, int w, int h)
 {
@@ -90,8 +102,8 @@ void Application::Init()
 
 
 	//Create a window and create its OpenGL context
-	m_width = 800;
-	m_height = 600;
+	m_width = 1920;
+	m_height = 1080;
 	m_window = glfwCreateWindow(m_width, m_height, "Physics", NULL, NULL);
 
 	//If the window couldn't be created
@@ -124,14 +136,31 @@ void Application::Init()
 void Application::Run()
 {
 	//Main Loop
-	Scene *scene = new SceneAsteroid();
-	scene->Init();
+	scenes[SCENE_MENU] = new Scene_Menu();
+	scenes[SCENE_LEVEL_ONE_ONE] = new Scene_GameL_One_One();
+	scenes[SCENE_LEVEL_ONE_TWO] = new Scene_GameL_One_Two();
+	scenes[SCENE_LEVEL_ONE_BOSS] = new Scene_GameL_One_Boss();
+
+	for (int i = 0; i < SCENE_COUNT; ++i) {
+		scenes[i]->Init();
+	}
 
 	m_timer.startTimer();    // Start timer to calculate how long it takes to render this frame
-	while (!glfwWindowShouldClose(m_window) && !IsKeyPressed(VK_ESCAPE))
+	while (!glfwWindowShouldClose(m_window) && !quit)
 	{
-		scene->Update(m_timer.getElapsedTime());
-		scene->Render();
+		if (Application::IsKeyPressed(VK_ESCAPE) && currentScene != SCENE_MENU)
+		{
+			if (currentScene > SCENE_MENU)
+			{
+				static_cast<Scene_Menu*>(scenes[SCENE_MENU])->setMenuState(PAUSE_MENU);
+			}
+			else {
+				static_cast<Scene_Menu*>(scenes[SCENE_MENU])->setMenuState(MAIN_MENU);
+			}
+			Application::setCurrentScene(SCENE_MENU);
+		}
+		scenes[currentScene]->Update(m_timer.getElapsedTime());
+		scenes[currentScene]->Render();
 		//Swap buffers
 		glfwSwapBuffers(m_window);
 		//Get and organize events, like keyboard and mouse input, window resizing, etc...
@@ -139,8 +168,25 @@ void Application::Run()
         m_timer.waitUntil(frameTime);       // Frame rate limiter. Limits each frame to a specified time in ms.   
 
 	} //Check if the ESC key had been pressed or if the window had been closed
-	scene->Exit();
-	delete scene;
+	
+	for (int i = 0; i < SCENE_COUNT; ++i) {
+		scenes[i]->Exit();
+		delete scenes[i];
+	}
+}
+
+void Application::resumeGame() {
+	currentScene = prevGameScene;
+}
+
+void Application::setCurrentScene(SCENE_TYPE type) {
+	switch (static_cast<SCENE_TYPE>(currentScene)) {
+	case SCENE_LEVEL_ONE_ONE:
+	case SCENE_LEVEL_ONE_TWO:
+	case SCENE_LEVEL_ONE_BOSS:
+		prevGameScene = currentScene;
+	}
+	currentScene = type;
 }
 
 void Application::Exit()

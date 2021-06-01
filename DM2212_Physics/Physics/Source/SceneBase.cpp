@@ -103,10 +103,41 @@ void SceneBase::Init()
 	}
 	meshList[GEO_AXES] = MeshBuilder::GenerateAxes("reference", 1000, 1000, 1000);
 	meshList[GEO_BALL] = MeshBuilder::GenerateSphere("ball", Color(1, 1, 1), 10, 10, 1.f);
-	meshList[GEO_CUBE] = MeshBuilder::GenerateCube("cube", Color(1, 1, 1), 2.f);
+	meshList[GEO_CUBE] = MeshBuilder::GenerateCube("cube", Color(1, 1, 1), 1.f);
 	meshList[GEO_TEXT] = MeshBuilder::GenerateText("text", 16, 16);
-	meshList[GEO_SHIP] = MeshBuilder::GenerateQuad("spaceship", Color(1,1,1), 20.0f);
+
+	meshList[GEO_SPACEBG] = MeshBuilder::GenerateQuad("spacebg", Color(1, 1, 1), 200.0f);
+	meshList[GEO_SPACEBG]->textureID = LoadTGA("Image//main_background.tga");
+
+	meshList[GEO_MENU_MAIN] = MeshBuilder::GenerateQuad("menu_main", Color(1, 1, 1), 50.0f);
+	meshList[GEO_MENU_MAIN]->textureID = LoadTGA("Image//menu_main.tga");
+
+	meshList[GEO_MENU_PAUSED] = MeshBuilder::GenerateQuad("menu_paused", Color(1, 1, 1), 50.0f);
+	meshList[GEO_MENU_PAUSED]->textureID = LoadTGA("Image//menu_paused.tga");
+
+	meshList[GEO_MENU_SELECTOR] = MeshBuilder::GenerateQuad("menu_selector", Color(1, 1, 1), 50.0f);
+	meshList[GEO_MENU_SELECTOR]->textureID = LoadTGA("Image//menu_selected.tga");
+
+	meshList[GEO_HEALTHBAR_OUTER] = MeshBuilder::GenerateQuad("healthbar_outer", Color(1, 1, 1), 5.0f);
+	meshList[GEO_HEALTHBAR_OUTER]->textureID = LoadTGA("Image//HealthBar.tga");
+
+	meshList[GEO_HEALTHBAR] = MeshBuilder::GenerateQuad("healthbar", Color(1, 1, 1), 5.0f);
+	meshList[GEO_HEALTHBAR]->textureID = LoadTGA("Image//HealthBarInner.tga");
+
+	meshList[GEO_SHIP] = MeshBuilder::GenerateQuad("spaceship", Color(1,1,1), 2.0f);
 	meshList[GEO_SHIP]->textureID = LoadTGA("Image//spaceship.tga");
+
+	meshList[GEO_ENEMY_1] = MeshBuilder::GenerateQuad("enemy1", Color(1, 1, 1), 2.0f);
+	meshList[GEO_ENEMY_1]->textureID = LoadTGA("Image//ship1.tga");
+	
+	meshList[GEO_BULLET_RED] = MeshBuilder::GenerateQuad("bulletred1", Color(1, 1, 1), 2.0f);
+	meshList[GEO_BULLET_RED]->textureID = LoadTGA("Image//bullet_red_1.tga");
+	meshList[GEO_BULLET] = MeshBuilder::GenerateQuad("bulletblue1", Color(1, 1, 1), 2.0f);
+	meshList[GEO_BULLET]->textureID = LoadTGA("Image//bullet_blue_1.tga");
+
+	meshList[GEO_ASTEROID] = MeshBuilder::GenerateQuad("asteroid", Color(1, 1, 1), 2.0f);
+	meshList[GEO_ASTEROID]->textureID = LoadTGA("Image//asteroid.tga");
+	
 	meshList[GEO_TEXT]->textureID = LoadTGA("Image//calibri.tga");
 	meshList[GEO_TEXT]->material.kAmbient.Set(1, 0, 0);
 
@@ -181,7 +212,7 @@ void SceneBase::RenderTextOnScreen(Mesh* mesh, std::string text, Color color, fl
 	for(unsigned i = 0; i < text.length(); ++i)
 	{
 		Mtx44 characterSpacing;
-		characterSpacing.SetToTranslation(i * 1.0f + 0.5f, 0.5f, 0); //1.0f is the spacing of each character, you may change this value
+		characterSpacing.SetToTranslation(i * 0.5f + 0.5f, 0.5f, 0); //1.0f is the spacing of each character, you may change this value
 		Mtx44 MVP = projectionStack.Top() * viewStack.Top() * modelStack.Top() * characterSpacing;
 		glUniformMatrix4fv(m_parameters[U_MVP], 1, GL_FALSE, &MVP.a[0]);
 

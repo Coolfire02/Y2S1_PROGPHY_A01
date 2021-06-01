@@ -153,7 +153,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source\Application.cpp" />
+    <ClCompile Include="Source\Bullet.cpp" />
     <ClCompile Include="Source\Camera.cpp" />
+    <ClCompile Include="Source\Enemy.cpp" />
     <ClCompile Include="Source\GameObject.cpp" />
     <ClCompile Include="Source\LoadOBJ.cpp" />
     <ClCompile Include="Source\LoadTGA.cpp" />
@@ -163,12 +165,19 @@
     <ClCompile Include="Source\SceneAsteroid.cpp" />
     <ClCompile Include="Source\SceneBase.cpp" />
     <ClCompile Include="Source\SceneKinematics.cpp" />
+    <ClCompile Include="Source\Scene_GameL_One_BOSS.cpp" />
+    <ClCompile Include="Source\Scene_GameL_One_One.cpp" />
+    <ClCompile Include="Source\Scene_GameL_One_Two.cpp" />
+    <ClCompile Include="Source\Scene_Menu.cpp" />
     <ClCompile Include="Source\shader.cpp" />
     <ClCompile Include="Source\Utility.cpp" />
+    <ClCompile Include="Source\Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\Application.h" />
+    <ClInclude Include="Source\Bullet.h" />
     <ClInclude Include="Source\Camera.h" />
+    <ClInclude Include="Source\Enemy.h" />
     <ClInclude Include="Source\GameObject.h" />
     <ClInclude Include="Source\Light.h" />
     <ClInclude Include="Source\LoadOBJ.h" />
@@ -180,9 +189,14 @@
     <ClInclude Include="Source\SceneAsteroid.h" />
     <ClInclude Include="Source\SceneBase.h" />
     <ClInclude Include="Source\SceneKinematics.h" />
+    <ClInclude Include="Source\Scene_GameL_One_BOSS.h" />
+    <ClInclude Include="Source\Scene_GameL_One_One.h" />
+    <ClInclude Include="Source\Scene_GameL_One_Two.h" />
+    <ClInclude Include="Source\Scene_Menu.h" />
     <ClInclude Include="Source\shader.hpp" />
     <ClInclude Include="Source\Utility.h" />
     <ClInclude Include="Source\Vertex.h" />
+    <ClInclude Include="Source\Weapon.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -64,7 +64,7 @@ void SceneKinematics::Update(double dt)
 	if(Application::IsKeyPressed('C'))
 	{
 		for (auto go : m_goList) {
-			go->active = false;
+			go->setActive(false);
 		}
 	}
 	if(Application::IsKeyPressed('B'))
@@ -73,9 +73,9 @@ void SceneKinematics::Update(double dt)
 		for (std::vector<GameObject*>::iterator it = m_goList.begin(); it != m_goList.end(); ++it)
 		{
 			GameObject* go = (GameObject*)*it;
-			if (!go->active)
+			if (!go->isActive())
 			{
-				go->active = true;
+				go->setActive(true);
 				go->type = GameObject::GO_BALL;
 				int w = Application::GetWindowWidth();
 				int h = Application::GetWindowHeight();
@@ -90,9 +90,9 @@ void SceneKinematics::Update(double dt)
 		for (std::vector<GameObject*>::iterator it = m_goList.begin(); it != m_goList.end(); ++it)
 		{
 			GameObject* go = (GameObject*)*it;
-			if (!go->active)
+			if (!go->isActive())
 			{
-				go->active = true;
+				go->setActive(true);
 				go->type = GameObject::GO_CUBE;
 				int w = Application::GetWindowWidth();
 				int h = Application::GetWindowHeight();
@@ -115,9 +115,9 @@ void SceneKinematics::Update(double dt)
 		int h = Application::GetWindowHeight();
 
 		//Exercise 10: spawn ghost ball
-		if (!m_ghost->active)
+		if (!m_ghost->isActive())
 		{
-			m_ghost->active = true;
+			m_ghost->setActive(true);
 
 			m_ghost->pos = Vector3(x / w * m_worldWidth, (h - y) / h * m_worldHeight, 0);
 		}
@@ -132,9 +132,9 @@ void SceneKinematics::Update(double dt)
 		for (std::vector<GameObject*>::iterator it = m_goList.begin(); it != m_goList.end(); ++it)
 		{
 			GameObject* go = *it;
-			if (!go->active)
+			if (!go->isActive())
 			{
-				go->active = true;
+				go->setActive(true);
 				go->type = GameObject::GO_BALL;
 				go->scale = m_ghost->scale;
 
@@ -146,7 +146,7 @@ void SceneKinematics::Update(double dt)
 				go->pos = m_ghost->pos;
 				go->vel = go->pos - Vector3(x / w * m_worldWidth, (h - y) / h * m_worldHeight, 0);
 				m_ghost->vel = go->vel;
-				m_ghost->active = false;
+				m_ghost->setActive(false);
 				m_timeGO = go;
 				break;
 			}
@@ -161,9 +161,9 @@ void SceneKinematics::Update(double dt)
 
 		for (auto go : m_goList) 
 		{
-			if (!go->active) 
+			if (!go->isActive()) 
 			{
-				go->active = true;
+				go->setActive(true);
 				go->type = GameObject::GO_BALL;
 
 				double x, y;
@@ -202,9 +202,9 @@ void SceneKinematics::Update(double dt)
 
 		for (auto go : m_goList)
 		{
-			if (!go->active)
+			if (!go->isActive())
 			{
-				go->active = true;
+				go->setActive(true);
 				go->type = GameObject::GO_CUBE;
 
 				double x, y;
@@ -234,7 +234,7 @@ void SceneKinematics::Update(double dt)
 	for(std::vector<GameObject *>::iterator it = m_goList.begin(); it != m_goList.end(); ++it)
 	{
 		GameObject *go = (GameObject *)*it;
-		if(go->active)
+		if(go->isActive())
 		{
 			if(go->type == GameObject::GO_BALL)
 			{
@@ -252,10 +252,10 @@ void SceneKinematics::Update(double dt)
 				
 							//Exercise 8: check collision with GO_CUBE
 				for (auto toGO : m_goList) {
-					if (toGO->active && toGO->type == GameObject::GO_CUBE) {
+					if (toGO->isActive() && toGO->type == GameObject::GO_CUBE) {
 						if ( (go->pos - toGO->pos).Length() < go->scale.x+toGO->scale.x) {
-							go->active = false;
-							toGO->active = false;
+							go->setActive(false);
+							toGO->setActive(false);
 							break;
 						}
 					}
@@ -269,7 +269,7 @@ void SceneKinematics::Update(double dt)
 
 			if ((go->pos.x > (m_worldWidth + go->scale.x) || go->pos.x < (0 - go->scale.x))
 				|| (go->pos.y > (m_worldHeight + go->scale.y) || go->pos.y < (0 - go->scale.y))) {
-				go->active = false;
+				go->setActive(false);
 			}
 		}
 	}
@@ -323,12 +323,12 @@ void SceneKinematics::Render()
 	for(std::vector<GameObject *>::iterator it = m_goList.begin(); it != m_goList.end(); ++it)
 	{
 		GameObject *go = (GameObject *)*it;
-		if(go->active)
+		if(go->isActive())
 		{
 			RenderGO(go);
 		}
 	}
-	if(m_ghost->active)
+	if(m_ghost->isActive())
 	{
 		RenderGO(m_ghost);
 	}

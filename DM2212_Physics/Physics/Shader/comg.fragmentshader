@@ -126,4 +126,8 @@ void main(){
 		else
 			color = vec4( fragmentColor, 1 );
 	}
+	if (color.a <= 0.1f)
+	{
+		discard;
+	}
 }
