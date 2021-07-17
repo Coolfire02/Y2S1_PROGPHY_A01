@@ -49,6 +49,7 @@ void Scene_Menu::Update(double dt)
 		{
 			if (buttonIndex == 0) {
 				Application::resumeGame();
+				state = MAIN_MENU;
 			}
 			else if (buttonIndex == 1) {
 				//Quit Button

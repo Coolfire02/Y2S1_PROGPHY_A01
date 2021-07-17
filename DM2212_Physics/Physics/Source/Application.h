@@ -38,9 +38,13 @@ public:
 	static int GetWindowHeight();
 	static float GetFrameTime();
 
+	//Can all be moved into a Game State Manager. Do if have time
 	static bool quit;
 	static int currentScene;
 	static int prevGameScene;
+	static int ship_lives;
+	static int gameScore;
+	static void resetGame();
 	static void resumeGame();
 	static void setCurrentScene(SCENE_TYPE type);
 

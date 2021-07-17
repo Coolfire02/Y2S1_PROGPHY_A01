@@ -14,7 +14,7 @@ enum WEAPON_TYPE {
 	WEAPON_DOUBLEGUN,
 	WEAPON_QUADGUN,
 
-	WEAPON_LASER,
+	WEAPON_LASERGUN,
 
 	WEAPON_HOMING,
 
@@ -43,6 +43,8 @@ public:
 	Weapon(WEAPON_TYPE, float cd);
 	~Weapon();
 	WEAPON_TYPE getWeaponType();
+
+	void setType(WEAPON_TYPE);
 
 	bool isTargettable(WEAPON_TARGET target);
 	void setTargettable(WEAPON_TARGET target, bool targettable);

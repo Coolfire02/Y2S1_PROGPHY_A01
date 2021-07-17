@@ -164,6 +164,7 @@
     <ClCompile Include="Source\MeshBuilder.cpp" />
     <ClCompile Include="Source\SceneAsteroid.cpp" />
     <ClCompile Include="Source\SceneBase.cpp" />
+    <ClCompile Include="Source\SceneCollision.cpp" />
     <ClCompile Include="Source\SceneKinematics.cpp" />
     <ClCompile Include="Source\Scene_GameL_One_BOSS.cpp" />
     <ClCompile Include="Source\Scene_GameL_One_One.cpp" />
@@ -188,6 +189,7 @@
     <ClInclude Include="Source\Scene.h" />
     <ClInclude Include="Source\SceneAsteroid.h" />
     <ClInclude Include="Source\SceneBase.h" />
+    <ClInclude Include="Source\SceneCollision.h" />
     <ClInclude Include="Source\SceneKinematics.h" />
     <ClInclude Include="Source\Scene_GameL_One_BOSS.h" />
     <ClInclude Include="Source\Scene_GameL_One_One.h" />

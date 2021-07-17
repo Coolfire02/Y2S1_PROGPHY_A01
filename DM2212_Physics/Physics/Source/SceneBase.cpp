@@ -127,11 +127,57 @@ void SceneBase::Init()
 	meshList[GEO_SHIP] = MeshBuilder::GenerateQuad("spaceship", Color(1,1,1), 2.0f);
 	meshList[GEO_SHIP]->textureID = LoadTGA("Image//spaceship.tga");
 
+	meshList[GEO_SHIP_CLOAX] = MeshBuilder::GenerateQuad("spaceship", Color(1, 1, 1), 2.0f);
+	meshList[GEO_SHIP_CLOAX]->textureID = LoadTGA("Image//spaceship_cloax.tga");
+
+	meshList[GEO_POWERUP_TIME] = MeshBuilder::GenerateQuad("powerup_slowtime", Color(1, 1, 1), 2.0f);
+	meshList[GEO_POWERUP_TIME]->textureID = LoadTGA("Image//slowtime_powerup.tga");
+
+	meshList[GEO_POWERUP_HEALTH] = MeshBuilder::GenerateQuad("powerup_health", Color(1, 1, 1), 2.0f);
+	meshList[GEO_POWERUP_HEALTH]->textureID = LoadTGA("Image//health_powerup.tga");
+
+	meshList[GEO_POWERUP_GUNDOUBLE] = MeshBuilder::GenerateQuad("powerup_gundouble", Color(1, 1, 1), 2.0f);
+	meshList[GEO_POWERUP_GUNDOUBLE]->textureID = LoadTGA("Image//gun_double.tga");
+
+	meshList[GEO_WORMHOLE] = MeshBuilder::GenerateQuad("wormhole", Color(1, 1, 1), 2.0f);
+	meshList[GEO_WORMHOLE]->textureID = LoadTGA("Image//wormhole.tga");
+
+	meshList[GEO_KEYCARD] = MeshBuilder::GenerateQuad("keycard", Color(1, 1, 1), 2.0f);
+	meshList[GEO_KEYCARD]->textureID = LoadTGA("Image//keycard.tga");
+
+	meshList[GEO_POWERUP_GUNQUAD] = MeshBuilder::GenerateQuad("powerup_gunquad", Color(1, 1, 1), 2.0f);
+	meshList[GEO_POWERUP_GUNQUAD]->textureID = LoadTGA("Image//gun_quad.tga");
+
+	meshList[GEO_SHIP_LIVES] = MeshBuilder::GenerateQuad("shop_lives", Color(1, 1, 1), 2.0f);
+	meshList[GEO_SHIP_LIVES]->textureID = LoadTGA("Image//spaceship_lives.tga");
+
+	meshList[GEO_ABILITY_CLOAX] = MeshBuilder::GenerateQuad("ability_cloax", Color(1, 1, 1), 2.0f);
+	meshList[GEO_ABILITY_CLOAX]->textureID = LoadTGA("Image//spaceship_cloax.tga");
+
 	meshList[GEO_ENEMY_1] = MeshBuilder::GenerateQuad("enemy1", Color(1, 1, 1), 2.0f);
 	meshList[GEO_ENEMY_1]->textureID = LoadTGA("Image//ship1.tga");
+
+	meshList[GEO_ENEMY_2] = MeshBuilder::GenerateQuad("enemy2", Color(1, 1, 1), 2.0f);
+	meshList[GEO_ENEMY_2]->textureID = LoadTGA("Image//ship2.tga");
+
+	meshList[GEO_ENEMY_BOSS_1] = MeshBuilder::GenerateQuad("boss3", Color(1, 1, 1), 2.0f);
+	meshList[GEO_ENEMY_BOSS_1]->textureID = LoadTGA("Image//ship3.tga");
+
+	meshList[GEO_HEALTH_ORB] = MeshBuilder::GenerateQuad("healthorb", Color(1, 1, 1), 2.0f);
+	meshList[GEO_HEALTH_ORB]->textureID = LoadTGA("Image//greenorb.tga");
+
+	meshList[GEO_POWER_ORB] = MeshBuilder::GenerateQuad("powerorb", Color(1, 1, 1), 2.0f);
+	meshList[GEO_POWER_ORB]->textureID = LoadTGA("Image//redorb.tga");
+
+	meshList[GEO_DEFENSE_ORB] = MeshBuilder::GenerateQuad("defenseorb", Color(1, 1, 1), 2.0f);
+	meshList[GEO_DEFENSE_ORB]->textureID = LoadTGA("Image//blueorb.tga");
 	
 	meshList[GEO_BULLET_RED] = MeshBuilder::GenerateQuad("bulletred1", Color(1, 1, 1), 2.0f);
 	meshList[GEO_BULLET_RED]->textureID = LoadTGA("Image//bullet_red_1.tga");
+
+	meshList[GEO_BULLET_HOMING] = MeshBuilder::GenerateQuad("bullethoming1", Color(1, 1, 1), 2.0f);
+	meshList[GEO_BULLET_HOMING]->textureID = LoadTGA("Image//bullet_homing.tga");
+
 	meshList[GEO_BULLET] = MeshBuilder::GenerateQuad("bulletblue1", Color(1, 1, 1), 2.0f);
 	meshList[GEO_BULLET]->textureID = LoadTGA("Image//bullet_blue_1.tga");
 
@@ -224,6 +270,11 @@ void SceneBase::RenderTextOnScreen(Mesh* mesh, std::string text, Color color, fl
 	viewStack.PopMatrix();
 	projectionStack.PopMatrix();
 	glEnable(GL_DEPTH_TEST);
+}
+
+Mesh* SceneBase::getMesh(GEOMETRY_TYPE type)
+{
+	return meshList[type];
 }
 
 void SceneBase::RenderMesh(Mesh *mesh, bool enableLight)

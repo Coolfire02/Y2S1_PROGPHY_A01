@@ -17,7 +17,7 @@ Weapon::Weapon(WEAPON_TYPE type, float cd) : type(type), bulletCD(cd), lastBulle
 		bulletDMG = 0.6f;
 		break;
 
-	case WEAPON_LASER:
+	case WEAPON_LASERGUN:
 		bulletDMG = 0.25f;
 		break;
 
@@ -43,6 +43,10 @@ void Weapon::setAllTargettable(bool targettable) {
 
 float Weapon::getBulletSpeed() {
 	return bulletSpeed;
+}
+
+void Weapon::setType(WEAPON_TYPE type) {
+	this->type = type;
 }
 
 void Weapon::setBulletSpeed(float speed) {

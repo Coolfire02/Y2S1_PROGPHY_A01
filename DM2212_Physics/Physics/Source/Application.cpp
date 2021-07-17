@@ -14,6 +14,7 @@
 #include "SceneKinematics.h"
 #include "SceneAsteroid.h"
 
+#include "SceneCollision.h"
 #include "Scene_Menu.h"
 #include "Scene_GameL_One_One.h"
 #include "Scene_GameL_One_Two.h"
@@ -21,12 +22,14 @@
 
 GLFWwindow* m_window;
 const unsigned char FPS = 60; // FPS of this game
-float frameTime = 0.01666667; // time for each frame
+float frameTime = 1000 / FPS; // time for each frame
 int m_width, m_height;
 
 int Application::currentScene = 0;
 int Application::prevGameScene = SCENE_LEVEL_ONE_ONE;
 bool Application::quit = false;
+int Application::gameScore = 0;
+int Application::ship_lives = 3;
 
 //Define an error callback
 static void error_callback(int error, const char* description)
@@ -100,7 +103,6 @@ void Application::Init()
 	//glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // To make MacOS happy; should not be needed
 	glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE); //We don't want the old OpenGL 
 
-
 	//Create a window and create its OpenGL context
 	m_width = 1920;
 	m_height = 1080;
@@ -136,10 +138,10 @@ void Application::Init()
 void Application::Run()
 {
 	//Main Loop
-	scenes[SCENE_MENU] = new Scene_Menu();
+	scenes[SCENE_MENU] = new SceneCollision();
 	scenes[SCENE_LEVEL_ONE_ONE] = new Scene_GameL_One_One();
 	scenes[SCENE_LEVEL_ONE_TWO] = new Scene_GameL_One_Two();
-	scenes[SCENE_LEVEL_ONE_BOSS] = new Scene_GameL_One_Boss();
+	scenes[SCENE_LEVEL_ONE_BOSS] = new Scene_GameL_One_BOSS();
 
 	for (int i = 0; i < SCENE_COUNT; ++i) {
 		scenes[i]->Init();
@@ -161,6 +163,7 @@ void Application::Run()
 		}
 		scenes[currentScene]->Update(m_timer.getElapsedTime());
 		scenes[currentScene]->Render();
+		
 		//Swap buffers
 		glfwSwapBuffers(m_window);
 		//Get and organize events, like keyboard and mouse input, window resizing, etc...
@@ -177,6 +180,14 @@ void Application::Run()
 
 void Application::resumeGame() {
 	currentScene = prevGameScene;
+}
+
+void Application::resetGame() {
+	currentScene = SCENE_MENU;
+	prevGameScene = SCENE_LEVEL_ONE_ONE;
+
+	gameScore = 0;
+	ship_lives = 3;
 }
 
 void Application::setCurrentScene(SCENE_TYPE type) {

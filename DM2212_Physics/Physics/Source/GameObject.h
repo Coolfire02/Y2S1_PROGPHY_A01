@@ -9,19 +9,33 @@ struct GameObject
 {
 	enum GAMEOBJECT_TYPE
 	{
+
 		GO_NONE = 0,
 		GO_BALL,
 		GO_CUBE,
-		
+		GO_WALL,
+
 		GO_ASTEROID,
+		GO_PAPA_ASTEROID,
 		
 		GO_SHIP,
 		GO_BULLET,
 
 		GO_ENEMY,
 		GO_ENEMY_BULLET,
-		GO_MISSILE,
-		GO_POWERUP,
+		GO_HOMINGMISSILE,
+		
+		GO_KEYCARD,
+
+		GO_POWERUP_TIME,
+		GO_POWERUP_HEALTH,
+		GO_POWERUP_GUNDOUBLE,
+		GO_POWERUP_GUNQUAD,
+		GO_ABILITY_CLOAX,
+
+		GO_ORB,
+
+		GO_WORMHOLE,
 
 		GO_TOTAL, //must be last
 	};
@@ -30,10 +44,16 @@ struct GameObject
 	Vector3 pos;
 	Vector3 vel;
 	Vector3 scale;
+
+	
 	
 	float mass;
+
+	bool justDamagedByCollision;
 	
 	GameObject* parentGO;
+
+	bool isMoveable;
 
 private:
 	Mesh* customMesh;
@@ -46,6 +66,7 @@ public:
 	void flushWeapons();
 	Weapon* getCurrentWeapon();
 	WEAPON getCurrentWeaponsOrder();
+	Weapon* getWeapon(WEAPON type);
 	void setCurrentWeapon(WEAPON weapon);
 	bool setCurrentWeapon(WEAPON_TYPE);
 	void setWeapon(WEAPON, WEAPON_TYPE, float cd);
@@ -65,10 +86,13 @@ public:
 	float getMaxHealth();
 	bool isDamaged();
 
+	float movementCooldown; //Used when object has constantly modifying velocities to not get stuck on asteroids.
 	float angle;
 	Vector3 dir; //direction / orientation
 	float momentOfInertia;
 	float angularVelocity; //in radians
+
+	Vector3 normal;
 
 	GameObject(GAMEOBJECT_TYPE typeValue = GO_BALL);
 	~GameObject();

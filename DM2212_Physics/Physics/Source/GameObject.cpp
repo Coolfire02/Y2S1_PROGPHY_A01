@@ -7,6 +7,8 @@ GameObject::GameObject(GAMEOBJECT_TYPE typeValue)
 	angle(0.f),
 	health(1.0f),
 	customMesh(nullptr),
+	isMoveable(true),
+	justDamagedByCollision(false),
 	active(false),
 	weaponIndex(WEAPON::PRIMARY),
 	mass(1.f),
@@ -57,11 +59,18 @@ void GameObject::setActive(bool active) {
 	this->active = active;
 	if (active == false) {
 		customMesh = nullptr;
+		maxHealth = 0;
+		health = 0;
 	}
 }
 
 bool GameObject::isActive() {
 	return active;
+}
+
+Weapon* GameObject::getWeapon(WEAPON type)
+{
+	return weapons[type];
 }
 
 Mesh* GameObject::getCustomMesh() {
@@ -82,8 +91,14 @@ void GameObject::setHealth(float health) {
 }
 
 void GameObject::subtractHealth(float amt) {
-	health -= amt;
-	if (health < 0) health = 0;
+	if (amt > 0)
+	{
+		health -= amt;
+		if (health < 0) health = 0;
+	}
+	else {
+		amt + 1;
+	}
 }
 
 void GameObject::addHealth(float amt) {

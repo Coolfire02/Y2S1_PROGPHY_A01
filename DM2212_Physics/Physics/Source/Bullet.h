@@ -15,7 +15,8 @@ struct Bullet : public GameObject
 	GameObject* targetGO;
 	GameObject* parentGO;
 	BULLET_TYPE bulletType;
-	Bullet() : GameObject(GameObject::GO_BULLET), weaponUsed(nullptr), targetGO(nullptr), parentGO(nullptr), bulletType(BULLET_BLUE) {}
+	float damageMultiplier;
+	Bullet() : GameObject(GameObject::GO_BULLET), damageMultiplier(1.f),weaponUsed(nullptr), targetGO(nullptr), parentGO(nullptr), bulletType(BULLET_BLUE) {}
 	~Bullet() {};
 };
 

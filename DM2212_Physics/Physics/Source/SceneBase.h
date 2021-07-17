@@ -56,12 +56,30 @@ public:
 		GEO_HEALTHBAR,
 
 		GEO_BULLET_RED,
+		GEO_BULLET_HOMING,
+
+		GEO_POWERUP_TIME,
+		GEO_POWERUP_HEALTH,
+		GEO_POWERUP_GUNDOUBLE,
+		GEO_POWERUP_GUNQUAD,
+		GEO_ABILITY_CLOAX,
+
+		GEO_KEYCARD,
+
 		GEO_ENEMY_1,
 		GEO_ENEMY_2,
-		GEO_BOSS_1,
+		GEO_ENEMY_BOSS_1,
+
+		GEO_WORMHOLE,
+
+		GEO_HEALTH_ORB,
+		GEO_POWER_ORB,
+		GEO_DEFENSE_ORB,
 
 		GEO_SPACEBG,
 		GEO_SHIP,
+		GEO_SHIP_LIVES,
+		GEO_SHIP_CLOAX,
 		GEO_BULLET,
 		GEO_ASTEROID,
 		NUM_GEOMETRY,
@@ -79,7 +97,7 @@ public:
 	void RenderTextOnScreen(Mesh* mesh, std::string text, Color color, float size, float x, float y);
 	void RenderMesh(Mesh *mesh, bool enableLight);
 	void RenderGO(GameObject *go);
-
+	Mesh* getMesh(GEOMETRY_TYPE type);
 	GameObject* FetchGO();
 protected:
 	unsigned m_vertexArrayID;
