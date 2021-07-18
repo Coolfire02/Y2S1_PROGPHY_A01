@@ -43,12 +43,12 @@ void SceneCollision::Init()
 
 GameObject* SceneCollision::FetchGO()
 {
-	m_objectCount++;
 	//Exercise 2a: implement FetchGO()
 	for (auto go : m_goList)
 	{
 		if (!go->isActive())
 		{
+			m_objectCount++;
 			go->setActive(true);
 			return go;
 		}
@@ -58,11 +58,8 @@ GameObject* SceneCollision::FetchGO()
 		GameObject* newGO = new GameObject(GameObject::GO_BALL);
 		m_goList.push_back(newGO);
 	}
-	m_goList.at(0)->setActive(true);
-	return m_goList.at(0);
-
-	//Exercise 2b: increase object count every time an object is set to isActive()
-	return NULL;
+	//Exercise 2b: increase object count every time an object is set to active
+	FetchGO();
 }
 
 void SceneCollision::ReturnGO(GameObject* go)
@@ -185,11 +182,11 @@ void SceneCollision::Update(double dt)
 			for (std::vector<GameObject*>::iterator it2 = it + 1; it2 != m_goList.end(); ++it2)
 			{
 				GameObject* go2 = (GameObject*)*it2;
-				if (go2->isActive())
+				if (go2->isActive() && go2 != go)
 				{
 					if (go->type != GameObject::GO_BALL && go2->type == GameObject::GO_BALL)
 					{
-						if (CheckCollision(go, go2)) {
+						if (CheckCollision(go2, go)) {
 							CollisionResponse(go2, go);
 							break;
 						}
@@ -327,8 +324,8 @@ bool SceneCollision::CheckCollision(GameObject* go1, GameObject* go2) {
 	else if (go1->type == GameObject::GO_BALL && go2->type == GameObject::GO_WALL)
 	{
 
-		if(Math::FAbs( (go2->pos - go1->pos).Dot(go2->normal) < go1->scale.x + go2->scale.x) &&
-						Math::FAbs( (go2->pos - go1->pos).Dot(Vector3(go2->normal.y, -go2->normal.x, 0))) < go1->scale.x + go2->scale.y )
+		if(Math::FAbs( (go2->pos - go1->pos).Dot(go2->normal) ) < go1->scale.x + go2->scale.x*0.5 &&
+						Math::FAbs( (go2->pos - go1->pos).Dot(Vector3(go2->normal.y, -go2->normal.x, 0))) < go1->scale.x + go2->scale.y*0.5 )
 		{
 			return true;
 		}
@@ -341,12 +338,13 @@ void SceneCollision::CollisionResponse(GameObject* go1, GameObject* go2)
 {
 	if (go1->type == GameObject::GO_BALL && go2->type == GameObject::GO_BALL)
 	{
-		u1 = go1->vel;
-		u2 = go2->vel;
-		Vector3 N = (go1->pos - go2->pos).Normalized();
+		Vector3 u1 = go1->vel;
+		Vector3 u2 = go2->vel;
+		float m1 = go1->mass;
+		float m2 = go2->mass;
 
-		go1->vel = u1 + (2 * m2 / (m1 + m2)) * (u2 - u1).Dot(N) * N;
-		go2->vel = u2 + (2 * m1 / (m1 + m2)) * (u1 - u2).Dot(N) * N;
+		go1->vel = u1 - (2 * m2 / (m1 + m2)) * (((u1 - u2).Dot(go1->pos - go2->pos)) / (go1->pos - go2->pos).LengthSquared()) * (go1->pos - go2->pos);
+		go2->vel = u2 - (2 * m1 / (m1 + m2)) * (((u2 - u1).Dot(go2->pos - go1->pos)) / (go2->pos - go1->pos).LengthSquared()) * (go2->pos - go1->pos);
 	}
 	else if (go1->type == GameObject::GO_BALL && go2->type == GameObject::GO_WALL)
 	{
