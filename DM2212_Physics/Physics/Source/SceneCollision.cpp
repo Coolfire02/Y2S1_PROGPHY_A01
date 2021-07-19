@@ -28,17 +28,74 @@ void SceneCollision::Init()
 	//Calculating aspect ratio
 	m_worldHeight = 100.f;
 	m_worldWidth = m_worldHeight * (float)Application::GetWindowWidth() / Application::GetWindowHeight();
-
+	GameObject* go;
 	for (int i = 0; i < 8; i++)
 	{
-		GameObject* go = FetchGO();
+		go = FetchGO();
 		go->type = GameObject::GO_WALL;
 		go->setActive(true);
-		go->scale.Set(4, 24, 1);
+		go->scale.Set(2, 12, 1);
 		go->normal.Set(cos(Math::DegreeToRadian(i * 45)), sin(Math::DegreeToRadian(i * 45)), 0);
 		go->pos = Vector3(m_worldWidth * 0.5, m_worldHeight * 0.5, 0) + (go->normal * 27);
 
 	}
+	this->BuildThickWall(Vector3(2, 12, 1), Vector3(0, 1, 0), Vector3(m_worldWidth * 0.5, m_worldHeight * 0.5));
+
+	/*for (int i = -1; i <= 1; i += 2) 
+	{
+		GameObject* go2 = FetchGO();
+		go2->type = GameObject::GO_PILLAR;
+		go2->setActive(true);
+		go2->scale.Set(go->scale.x, go->scale.x, 1);
+		go2->pos = Vector3(go->pos.x + i * go->scale.y, go->pos.y, 0);
+	}*/
+}
+
+void SceneCollision::BuildThickWall(Vector3 scale, Vector3 normal, Vector3 pos)
+{
+	Vector3 NP = Vector3(normal.y, -normal.x, 0);
+
+	//Horizontal
+	GameObject* go;
+	go = FetchGO();
+	go->type = GameObject::GO_WALL;
+	go->setActive(true);
+	go->scale.Set(scale.x, scale.y, 1);
+	go->normal.Set(normal.x, normal.y, 0);
+	go->pos = Vector3(pos.x, pos.y, pos.z);
+
+	//Vertical
+	go = FetchGO();
+	go->type = GameObject::GO_WALL;
+	go->setActive(true);
+	go->scale.Set(scale.y, scale.x, 1);
+	go->normal.Set(normal.y, -normal.x, 0);
+	go->pos = Vector3(pos.x, pos.y, pos.z);
+
+	//4 Corners
+	go = FetchGO();
+	go->type = GameObject::GO_PILLAR;
+	go->setActive(true);
+	go->scale.Set(1, 1, 1);
+	go->pos = Vector3(pos.x + normal.x * scale.x, pos.y, 0);
+
+	go = FetchGO();
+	go->type = GameObject::GO_PILLAR;
+	go->setActive(true);
+	go->scale.Set(1, 1, 1);
+	go->pos = Vector3(pos.x + -scale.x, pos.y + scale.y, 0);
+
+	go = FetchGO();
+	go->type = GameObject::GO_PILLAR;
+	go->setActive(true);
+	go->scale.Set(1, 1, 1);
+	go->pos = Vector3(pos.x + scale.x, pos.y + scale.y, 0);
+
+	go = FetchGO();
+	go->type = GameObject::GO_PILLAR;
+	go->setActive(true);
+	go->scale.Set(1, 1, 1);
+	go->pos = Vector3(pos.x + -scale.x, pos.y + -scale.y, 0);
 }
 
 GameObject* SceneCollision::FetchGO()
@@ -188,12 +245,11 @@ void SceneCollision::Update(double dt)
 					{
 						if (CheckCollision(go2, go)) {
 							CollisionResponse(go2, go);
-							break;
+							continue;
 						}
 					}
 					if (CheckCollision(go, go2)) {
 						CollisionResponse(go, go2);
-						break;
 					}
 				}
 			}
@@ -215,6 +271,16 @@ void SceneCollision::RenderGO(GameObject* go)
 	switch (go->type)
 	{
 	case GameObject::GO_BALL:
+		//Exercise 4: render a sphere using scale and pos
+		modelStack.PushMatrix();
+		modelStack.Translate(go->pos.x, go->pos.y, go->pos.z);
+		modelStack.Scale(go->scale.x, go->scale.y, go->scale.z);
+		RenderMesh(meshList[GEO_BALL], false);
+		modelStack.PopMatrix();
+		//Exercise 11: think of a way to give balls different colors
+		break;
+
+	case GameObject::GO_PILLAR:
 		//Exercise 4: render a sphere using scale and pos
 		modelStack.PushMatrix();
 		modelStack.Translate(go->pos.x, go->pos.y, go->pos.z);
@@ -311,21 +377,40 @@ void SceneCollision::Exit()
 
 bool SceneCollision::CheckCollision(GameObject* go1, GameObject* go2) {
 
-	if (go1->type == GameObject::GO_BALL && go2->type == GameObject::GO_BALL)
+	if (go1->type == GameObject::GO_BALL && (go2->type == GameObject::GO_BALL || go2->type == GameObject::GO_PILLAR))
 	{
 		Vector3 displacement = go1->pos - go2->pos;
 		float combinedRadii = go1->scale.x + go2->scale.x;
 		if (displacement.LengthSquared() < combinedRadii * combinedRadii
-			) {
+			&& displacement.Dot(go2->vel - go1->vel) > 0) {
+			return true;
+		}
+	}
+	else if (go2->type == GameObject::GO_PILLAR)
+	{
+		Vector3 displacement = go1->pos - go2->pos;
+		float combinedRadii = go1->scale.x + go2->scale.x;
+		if (displacement.LengthSquared() < combinedRadii * combinedRadii
+			&& (go2->pos - go1->pos).Dot(go1->vel) > 0) {
 			return true;
 		}
 	}
 
 	else if (go1->type == GameObject::GO_BALL && go2->type == GameObject::GO_WALL)
 	{
+		Vector3 N = go2->normal;
+		Vector3 displacement = go2->pos - go1->pos;
+		if (displacement.Dot(N) < 0)
+			N = -N; // Make sure N is the outward normal
 
-		if(Math::FAbs( (go2->pos - go1->pos).Dot(go2->normal) ) < go1->scale.x + go2->scale.x*0.5 &&
-						Math::FAbs( (go2->pos - go1->pos).Dot(Vector3(go2->normal.y, -go2->normal.x, 0))) < go1->scale.x + go2->scale.y*0.5 )
+		Vector3 NP = Vector3(N.y, -N.x, 0);
+
+		if(
+			//Horizontal Wall
+			displacement.Dot(N) < go1->scale.x + go2->scale.x &&
+			Math::FAbs( displacement.Dot(NP)) < go2->scale.y
+
+			&& N.Dot(go1->vel) > 0)
 		{
 			return true;
 		}
@@ -345,6 +430,11 @@ void SceneCollision::CollisionResponse(GameObject* go1, GameObject* go2)
 
 		go1->vel = u1 - (2 * m2 / (m1 + m2)) * (((u1 - u2).Dot(go1->pos - go2->pos)) / (go1->pos - go2->pos).LengthSquared()) * (go1->pos - go2->pos);
 		go2->vel = u2 - (2 * m1 / (m1 + m2)) * (((u2 - u1).Dot(go2->pos - go1->pos)) / (go2->pos - go1->pos).LengthSquared()) * (go2->pos - go1->pos);
+	}
+	else if (go2->type == GameObject::GO_PILLAR)
+	{
+		Vector3 N = (go2->pos - go1->pos).Normalized();
+		go1->vel = go1->vel - (2 * go1->vel).Dot(N) * N;
 	}
 	else if (go1->type == GameObject::GO_BALL && go2->type == GameObject::GO_WALL)
 	{

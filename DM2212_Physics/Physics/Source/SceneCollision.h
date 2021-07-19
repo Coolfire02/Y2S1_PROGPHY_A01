@@ -18,6 +18,8 @@ public:
 
 	void RenderGO(GameObject* go);
 
+	void BuildThickWall(Vector3 scale, Vector3 normal, Vector3 pos);
+
 	GameObject* FetchGO();
 	void ReturnGO(GameObject* go);
 	bool CheckCollision(GameObject* go1, GameObject* go2);
