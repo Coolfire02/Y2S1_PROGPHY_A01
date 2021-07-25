@@ -7,6 +7,7 @@
 
 class SceneCollision : public SceneBase
 {
+
 public:
 	SceneCollision();
 	~SceneCollision();
@@ -23,7 +24,10 @@ public:
 	GameObject* FetchGO();
 	void ReturnGO(GameObject* go);
 	bool CheckCollision(GameObject* go1, GameObject* go2);
-	void CollisionResponse(GameObject* go1, GameObject* go2);
+	void CollisionResponse(GameObject* go1, GameObject* go2, double dt);
+	
+	void UpdateFilpper(GameObject* flipper, double dt);
+
 protected:
 
 	//Physics
@@ -31,8 +35,16 @@ protected:
 	float m_speed;
 	float m_worldWidth;
 	float m_worldHeight;
+	Vector3 m_worldGravity;
+	double elapsed;
+
+	double flipper_speed; //Period of one rotation
+
 	GameObject* m_ghost;
 	int m_objectCount;
+
+	GameObject* left_flipper;
+	GameObject* right_flipper;
 
 	float coefFriction = 0.05;
 

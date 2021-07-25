@@ -5,6 +5,7 @@ GameObject::GameObject(GAMEOBJECT_TYPE typeValue)
 	: type(typeValue),
 	scale(1, 1, 1),
 	angle(0.f),
+	gravity(false),
 	health(1.0f),
 	customMesh(nullptr),
 	isMoveable(true),
@@ -14,7 +15,9 @@ GameObject::GameObject(GAMEOBJECT_TYPE typeValue)
 	mass(1.f),
 	dir(1, 0, 0),
 	momentOfInertia(1.f),
-	angularVelocity(0.f)
+	angularVelocity(0.f),
+
+	cooldown(0.0) //Move to flipper class?
 {
 	for (int i = 0; i < WEAPON::MAX_WEAPONS; ++i) {
 		weapons[i] = nullptr;

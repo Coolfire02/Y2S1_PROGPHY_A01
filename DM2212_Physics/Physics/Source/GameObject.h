@@ -15,6 +15,7 @@ struct GameObject
 		GO_CUBE,
 		GO_PILLAR,
 		GO_WALL,
+		GO_FLIPPER,
 
 		GO_ASTEROID,
 		GO_PAPA_ASTEROID,
@@ -46,7 +47,16 @@ struct GameObject
 	Vector3 vel;
 	Vector3 scale;
 
-	
+	//Circular Motion
+	Vector3 pivot;
+	Vector3 pivotDir;
+	double cooldown;
+	bool isOnGround;
+	float minAngle;
+	float maxAngle;
+	bool flipperClockwise;
+
+	bool gravity;
 	
 	float mass;
 
