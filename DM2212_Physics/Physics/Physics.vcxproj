@@ -176,6 +176,7 @@
     <ClCompile Include="Source\Weapon.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Source\Attachment.h" />
     <ClInclude Include="Source\Flipper.h" />
     <ClInclude Include="Source\Application.h" />
     <ClInclude Include="Source\Bullet.h" />

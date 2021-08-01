@@ -5,8 +5,11 @@
 #include "Weapon.h"
 #include "Mesh.h"
 
+typedef struct Attachment Attachment;
+
 struct GameObject
 {
+
 	enum GAMEOBJECT_TYPE
 	{
 
@@ -15,7 +18,12 @@ struct GameObject
 		GO_CUBE,
 		GO_PILLAR,
 		GO_WALL,
+		GO_BREAKABLEWALL,
 		GO_FLIPPER,
+		GO_SPRING,
+		GO_BUMPER,
+		GO_BALLEXIT,
+		GO_POINT,
 
 		GO_ASTEROID,
 		GO_PAPA_ASTEROID,
@@ -47,7 +55,7 @@ struct GameObject
 	Vector3 vel;
 	Vector3 scale;
 
-	//Circular Motion
+	//For flippers
 	Vector3 pivot;
 	Vector3 pivotDir;
 	double cooldown;
@@ -55,6 +63,12 @@ struct GameObject
 	float minAngle;
 	float maxAngle;
 	bool flipperClockwise;
+	Attachment* attachment;
+
+	//For springs
+	Vector3 origin;
+	float maxSpringLength;
+	float springMagnitude;
 
 	bool gravity;
 	
@@ -94,6 +108,7 @@ public:
 	void subtractHealth(float amt);
 	void addHealth(float amt);
 	float getHealth();
+	float getHealthPercentage();
 	float getMaxHealth();
 	bool isDamaged();
 
@@ -107,6 +122,22 @@ public:
 
 	GameObject(GAMEOBJECT_TYPE typeValue = GO_BALL);
 	~GameObject();
+};
+
+struct Attachment
+{
+
+	GameObject::GAMEOBJECT_TYPE type;
+	Vector3 relativePos;
+	Vector3 scale;
+	Vector3 worldPos;
+	Attachment(GameObject::GAMEOBJECT_TYPE type, Vector3 relativePos, Vector3 scale) :
+		type(type),
+		relativePos(relativePos),
+		scale(scale),
+		worldPos(Vector3())
+	{
+	}
 };
 
 #endif

@@ -8,6 +8,7 @@ GameObject::GameObject(GAMEOBJECT_TYPE typeValue)
 	gravity(false),
 	health(1.0f),
 	customMesh(nullptr),
+	attachment(nullptr),
 	isMoveable(true),
 	justDamagedByCollision(false),
 	active(false),
@@ -16,7 +17,9 @@ GameObject::GameObject(GAMEOBJECT_TYPE typeValue)
 	dir(1, 0, 0),
 	momentOfInertia(1.f),
 	angularVelocity(0.f),
-
+	origin(Vector3()),
+	maxSpringLength(10),
+	springMagnitude(1),
 	cooldown(0.0) //Move to flipper class?
 {
 	for (int i = 0; i < WEAPON::MAX_WEAPONS; ++i) {
@@ -27,6 +30,10 @@ GameObject::GameObject(GAMEOBJECT_TYPE typeValue)
 GameObject::~GameObject()
 {
 	flushWeapons();
+	if (attachment != nullptr)
+	{
+		delete attachment;
+	}
 }
 
 void GameObject::flushWeapons() {
@@ -91,6 +98,11 @@ WEAPON GameObject::getCurrentWeaponsOrder() {
 void GameObject::setHealth(float health) {
 	if (health > this->maxHealth) this->maxHealth = health;
 	this->health = health;
+}
+
+float GameObject::getHealthPercentage()
+{
+	return health / maxHealth * 100;
 }
 
 void GameObject::subtractHealth(float amt) {

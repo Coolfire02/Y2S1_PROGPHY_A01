@@ -47,6 +47,10 @@ public:
 		GEO_TEXT,
 		GEO_BALL,
 		GEO_CUBE,
+		GEO_GREENCUBE,
+		GEO_YELLOWCUBE,
+		GEO_REDCUBE,
+		GEO_POINT,
 
 		GEO_MENU_MAIN,
 		GEO_MENU_PAUSED,
@@ -94,6 +98,7 @@ public:
 	virtual void Exit();
 
 	void RenderText(Mesh* mesh, std::string text, Color color);
+	void RenderTextOnScreen(Mesh* mesh, std::string text, Color color, float size, float x, float y, int(&charWidth)[256], int arrSize);
 	void RenderTextOnScreen(Mesh* mesh, std::string text, Color color, float size, float x, float y);
 	void RenderMesh(Mesh *mesh, bool enableLight);
 	void RenderGO(GameObject *go);

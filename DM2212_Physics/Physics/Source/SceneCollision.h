@@ -8,6 +8,11 @@
 class SceneCollision : public SceneBase
 {
 
+	enum DIRECTION {
+		LEFT,
+		RIGHT
+	};
+
 public:
 	SceneCollision();
 	~SceneCollision();
@@ -22,16 +27,23 @@ public:
 	void BuildThickWall(Vector3 scale, Vector3 normal, Vector3 pos);
 
 	GameObject* FetchGO();
-	void ReturnGO(GameObject* go);
+	void ReturnBall(GameObject* go);
 	bool CheckCollision(GameObject* go1, GameObject* go2);
 	void CollisionResponse(GameObject* go1, GameObject* go2, double dt);
 	
+	void UpdateBallOnSpring(bool to);
+
 	void UpdateFilpper(GameObject* flipper, double dt);
+	void setBreakableWall(DIRECTION dir, int layer);
+
+	bool spawnBall();
+	bool spawnPoint();
 
 protected:
 
 	//Physics
 	std::vector<GameObject*> m_goList;
+	std::vector<GameObject*> balls;
 	float m_speed;
 	float m_worldWidth;
 	float m_worldHeight;
@@ -41,10 +53,19 @@ protected:
 	double flipper_speed; //Period of one rotation
 
 	GameObject* m_ghost;
-	int m_objectCount;
+	int m_ballCount;
 
 	GameObject* left_flipper;
 	GameObject* right_flipper;
+	GameObject* spring;
+
+	//Game
+	int score;
+	int ballsRemaining;
+	bool canSpawnBall;
+	int points;
+
+	bool ballOnSpring;
 
 	float coefFriction = 0.05;
 

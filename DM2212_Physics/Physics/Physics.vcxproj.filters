@@ -157,5 +157,8 @@
     <ClInclude Include="Source\Flipper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Source\Attachment.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

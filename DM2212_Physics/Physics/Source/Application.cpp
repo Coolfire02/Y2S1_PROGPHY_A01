@@ -139,11 +139,9 @@ void Application::Run()
 {
 	//Main Loop
 	scenes[SCENE_MENU] = new SceneCollision();
-	scenes[SCENE_LEVEL_ONE_ONE] = new Scene_GameL_One_One();
-	scenes[SCENE_LEVEL_ONE_TWO] = new Scene_GameL_One_Two();
-	scenes[SCENE_LEVEL_ONE_BOSS] = new Scene_GameL_One_BOSS();
+	scenes[SCENE_PINBALL] = new SceneCollision();
 
-	for (int i = 0; i < SCENE_COUNT; ++i) {
+	for (int i = 0; i < 2; ++i) {
 		scenes[i]->Init();
 	}
 
@@ -172,7 +170,7 @@ void Application::Run()
 
 	} //Check if the ESC key had been pressed or if the window had been closed
 	
-	for (int i = 0; i < SCENE_COUNT; ++i) {
+	for (int i = 0; i < 2; ++i) {
 		scenes[i]->Exit();
 		delete scenes[i];
 	}
@@ -184,7 +182,7 @@ void Application::resumeGame() {
 
 void Application::resetGame() {
 	currentScene = SCENE_MENU;
-	prevGameScene = SCENE_LEVEL_ONE_ONE;
+	prevGameScene = SCENE_PINBALL;
 
 	gameScore = 0;
 	ship_lives = 3;
