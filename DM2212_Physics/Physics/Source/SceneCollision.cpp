@@ -897,7 +897,7 @@ void SceneCollision::Render()
 
 	std::ostringstream ss2;
 	ss2.precision(3);
-	ss2 << "Score: ";
+	ss2 << "Score ";
 	RenderTextOnScreen(meshList[GEO_TEXT], ss2.str(), Color(1, 0.8, 0), 4, 60, 50);
 
 	ss2.str("");
@@ -907,7 +907,7 @@ void SceneCollision::Render()
 
 	ss2.str("");
 	ss2.precision(3);
-	ss2 << "Balls Left: ";
+	ss2 << "Balls Left ";
 	RenderTextOnScreen(meshList[GEO_TEXT], ss2.str(), Color(0, 0.8, 0), 2, 60, 38);
 
 	ss2.str("");
@@ -915,11 +915,14 @@ void SceneCollision::Render()
 	ss2 << ballsRemaining;
 	RenderTextOnScreen(meshList[GEO_TEXT], ss2.str(), Color(0.9, 0.9, 0.9), 3, 60, 34);
 
-
 	std::ostringstream ss;
-	ss.precision(5);
-	ss << "FPS: " << fps;
-	RenderTextOnScreen(meshList[GEO_TEXT], ss.str(), Color(0.9, 0.9, 0.9), 1, 0, 40);
+	ss.precision(2);
+	ss << "FPS ";
+	RenderTextOnScreen(meshList[GEO_TEXT], ss.str(), Color(0.6, 0.6, 0.6), 3, 4, 50);
+
+	ss.str("");
+	ss << fps;
+	RenderTextOnScreen(meshList[GEO_TEXT], ss.str(), Color(0.9, 0.9, 0.9), 3, 4, 46);
 }
 
 void SceneCollision::Exit()
