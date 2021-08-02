@@ -51,19 +51,52 @@ void SceneCollision::Init()
 	GameObject* go;
 
 	//Outerwalls
+
+	//Right Outerwall
 	go = FetchGO();
 	go->type = GameObject::GO_WALL;
 	go->setActive(true);
-	go->scale.Set(1.4, 50, 1);
+	go->scale.Set(1.4, 32, 1);
 	go->normal.Set(cos(Math::DegreeToRadian(0)), sin(Math::DegreeToRadian(0)), 0);
-	go->pos = Vector3(m_worldWidth * 0.703, m_worldHeight * 0.5, 0);
+	go->pos = Vector3(m_worldWidth * 0.703, m_worldHeight * 0.33, 0);
+
+	//Bumper
+	go = FetchGO();
+	go->type = GameObject::GO_BUMPER;
+	go->setActive(true);
+	go->scale.Set(1.4, 8, 1);
+	go->normal.Set(cos(Math::DegreeToRadian(0)), sin(Math::DegreeToRadian(0)), 0);
+	go->pos = Vector3(m_worldWidth * 0.703, m_worldHeight * 0.7, 0);
 
 	go = FetchGO();
 	go->type = GameObject::GO_WALL;
 	go->setActive(true);
-	go->scale.Set(1.4, 50, 1);
+	go->scale.Set(1.4, 12, 1);
 	go->normal.Set(cos(Math::DegreeToRadian(0)), sin(Math::DegreeToRadian(0)), 0);
-	go->pos = Vector3(m_worldWidth * 0.297, m_worldHeight * 0.5, 0);
+	go->pos = Vector3(m_worldWidth * 0.703, m_worldHeight * 0.90, 0);
+
+	//Right Outerwall
+	go = FetchGO();
+	go->type = GameObject::GO_WALL;
+	go->setActive(true);
+	go->scale.Set(1.4, 32, 1);
+	go->normal.Set(cos(Math::DegreeToRadian(0)), sin(Math::DegreeToRadian(0)), 0);
+	go->pos = Vector3(m_worldWidth * 0.297, m_worldHeight * 0.33, 0);
+
+	//Bumper
+	go = FetchGO();
+	go->type = GameObject::GO_BUMPER;
+	go->setActive(true);
+	go->scale.Set(1.4, 8, 1);
+	go->normal.Set(cos(Math::DegreeToRadian(0)), sin(Math::DegreeToRadian(0)), 0);
+	go->pos = Vector3(m_worldWidth * 0.297, m_worldHeight * 0.7, 0);
+
+	go = FetchGO();
+	go->type = GameObject::GO_WALL;
+	go->setActive(true);
+	go->scale.Set(1.4, 12, 1);
+	go->normal.Set(cos(Math::DegreeToRadian(0)), sin(Math::DegreeToRadian(0)), 0);
+	go->pos = Vector3(m_worldWidth * 0.297, m_worldHeight * 0.90, 0);
 
 	//Ball Spawn Area
 	this->BuildThickWall(
@@ -88,7 +121,7 @@ void SceneCollision::Init()
 
 	//Ball Spawn Starting Curve
 		//Inward arc at Bottom Right of map
-	slices = 10;
+	slices = 6;
 	startAngle = 90;
 	angleStepUp = -60 / (double)slices;
 	for (int i = 0; i <= slices; i++)
@@ -143,13 +176,7 @@ void SceneCollision::Init()
 	go->type = GameObject::GO_PILLAR;
 	go->setActive(true);
 	go->scale.Set(2, 2, 1);
-	go->pos = Vector3(m_worldWidth * 0.5, m_worldHeight * 0.72, 0);
-
-	go = FetchGO();
-	go->type = GameObject::GO_PILLAR;
-	go->setActive(true);
-	go->scale.Set(2, 2, 1);
-	go->pos = Vector3(m_worldWidth * 0.5, m_worldHeight * 0.72, 0);
+	go->pos = Vector3(m_worldWidth * 0.522, m_worldHeight * 0.712, 0);
 
 	go = FetchGO();
 	go->type = GameObject::GO_PILLAR;
@@ -185,7 +212,7 @@ void SceneCollision::Init()
 	go->type = GameObject::GO_PILLAR;
 	go->setActive(true);
 	go->scale.Set(2, 2, 1);
-	go->pos = Vector3(m_worldWidth * 0.38, m_worldHeight * 0.55, 0);
+	go->pos = Vector3(m_worldWidth * 0.392, m_worldHeight * 0.552, 0);
 
 	//Semi Circle at Top of map
 	slices = 20;
@@ -254,7 +281,7 @@ void SceneCollision::Init()
 	);
 
 	//Inward arc at Bottom Left of map
-	slices = 10;
+	slices = 8;
 	startAngle = 230;
 	angleStepUp = 17 / (double)slices;
 	for (int i = 0; i <= slices; i++)
@@ -301,7 +328,7 @@ void SceneCollision::Init()
 	);
 
 	//Inward arc at Bottom Right of map
-	slices = 10;
+	slices = 8;
 	startAngle = -50;
 	angleStepUp = -17 / (double)slices;
 	for (int i = 0; i <= slices; i++)
@@ -587,6 +614,7 @@ void SceneCollision::Update(double dt)
 	{
 		bLButtonState = true;
 		std::cout << "LBUTTON DOWN" << std::endl;
+		std::cout << "posX" << posX / m_worldWidth << " " << "posY" << posY / m_worldHeight << std::endl;
 		m_ghost->setActive(true);
 		m_ghost->pos = Vector3(posX, posY, 0);
 	}
@@ -611,7 +639,7 @@ void SceneCollision::Update(double dt)
 	if (!bRButtonState && Application::IsMousePressed(1))
 	{
 		bRButtonState = true;
-		std::cout << "LBUTTON DOWN" << std::endl;
+		std::cout << "posX" << posX << " " << "posY" << posY << std::endl;
 		m_ghost->pos = Vector3(posX, posY, 0);
 		m_ghost->setActive(true);
 
@@ -790,6 +818,17 @@ void SceneCollision::RenderGO(GameObject* go)
 		modelStack.Rotate(Math::RadianToDegree(angle), 0, 0, 1);
 		modelStack.Scale(go->scale.x, go->scale.y, go->scale.z);
 		RenderMesh(meshList[GEO_CUBE], false);
+		modelStack.PopMatrix();
+		break;
+	}
+	case GameObject::GO_BUMPER:
+	{
+		modelStack.PushMatrix();
+		modelStack.Translate(go->pos.x, go->pos.y, go->pos.z);
+		float angle = atan2f(go->normal.y, go->normal.x);
+		modelStack.Rotate(Math::RadianToDegree(angle), 0, 0, 1);
+		modelStack.Scale(go->scale.x, go->scale.y, go->scale.z);
+		RenderMesh(meshList[GEO_BLUECUBE], false);
 		modelStack.PopMatrix();
 		break;
 	}
@@ -991,7 +1030,8 @@ bool SceneCollision::CheckCollision(GameObject* go1, GameObject* go2) {
 	}
 
 	else if (go2->type == GameObject::GO_WALL 
-		|| go2->type == GameObject::GO_BREAKABLEWALL)
+		|| go2->type == GameObject::GO_BREAKABLEWALL
+		|| go2->type == GameObject::GO_BUMPER)
 	{
 		Vector3 N = go2->normal;
 		Vector3 displacement = go2->pos - go1->pos;
@@ -1166,6 +1206,23 @@ void SceneCollision::CollisionResponse(GameObject* go1, GameObject* go2, double 
 			}
 		}
 		go1->vel = go1->vel - (2 * go1->vel.Dot(go2->normal)) * go2->normal;
+		//Friction
+		Vector3 fric = (go1->vel).Normalized() * (FRICTION_K)*dt;
+		go1->vel -= fric;
+	}
+
+	else if (go2->type == GameObject::GO_BUMPER) //DAMPER
+	{
+		const float MULTI = 0.8;
+		//Prevent internal clipping
+		Vector3 N = go2->normal;
+		if (go1->vel.y < 0)
+		{
+			Vector3 displacement = go2->pos - go1->pos;
+			if (displacement.Dot(N) > 0)
+				N = -N; // Make sure N is the inward normal
+		}
+		go1->vel = go1->vel - (2 * go1->vel.Dot(go2->normal)) * go2->normal * MULTI;
 		//Friction
 		Vector3 fric = (go1->vel).Normalized() * (FRICTION_K)*dt;
 		go1->vel -= fric;

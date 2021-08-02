@@ -107,6 +107,10 @@ void SceneBase::Init()
 	meshList[GEO_REDCUBE] = MeshBuilder::GenerateCube("redcube", Color(1, 0.4, 0.4), 2.f);
 	meshList[GEO_YELLOWCUBE] = MeshBuilder::GenerateCube("yellowcube", Color(1, 1, 0.4), 2.f);
 	meshList[GEO_GREENCUBE] = MeshBuilder::GenerateCube("greencube", Color(0.4, 1, 0.4), 2.f);
+
+	meshList[GEO_BLUECUBE] = MeshBuilder::GenerateCube("bluecube", Color(0.4,0.4,0.4), 2.f);
+	meshList[GEO_BALLHOLE] = MeshBuilder::GenerateSphere("ballhole", Color(0.7, 0.7, 0.7), 10, 10, 1.f);
+
 	meshList[GEO_POINT] = MeshBuilder::GenerateCube("point", Color(1, 0.9, 0), 2.f);
 	meshList[GEO_TEXT] = MeshBuilder::GenerateText("text", 16, 16);
 
