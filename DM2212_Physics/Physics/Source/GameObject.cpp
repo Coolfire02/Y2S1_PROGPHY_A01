@@ -20,6 +20,7 @@ GameObject::GameObject(GAMEOBJECT_TYPE typeValue)
 	origin(Vector3()),
 	maxSpringLength(10),
 	springMagnitude(1),
+	powerupLocked(false),
 	cooldown(0.0) //Move to flipper class?
 {
 	for (int i = 0; i < WEAPON::MAX_WEAPONS; ++i) {
@@ -71,6 +72,11 @@ void GameObject::setActive(bool active) {
 		customMesh = nullptr;
 		maxHealth = 0;
 		health = 0;
+		vel = Vector3(0, 0, 0);
+		normal = Vector3(0, 0, 0);
+		mass = 1.0;
+		type = GameObject::GO_NONE;
+		gravity = false;
 	}
 }
 

@@ -24,6 +24,8 @@ struct GameObject
 		GO_BUMPER,
 		GO_BALLEXIT,
 		GO_POINT,
+		GO_POWERUP_ENTRY,
+		GO_POWERUP_EXIT,
 
 		GO_ASTEROID,
 		GO_PAPA_ASTEROID,
@@ -55,6 +57,7 @@ struct GameObject
 	Vector3 vel;
 	Vector3 scale;
 
+	//These attributes would be moved into individual GameObject child classes but for simplicity sake they exist here for the project
 	//For flippers
 	Vector3 pivot;
 	Vector3 pivotDir;
@@ -69,6 +72,9 @@ struct GameObject
 	Vector3 origin;
 	float maxSpringLength;
 	float springMagnitude;
+
+	//Powerup being used;
+	bool powerupLocked;
 
 	bool gravity;
 	

@@ -228,7 +228,7 @@ void SceneCollision::Init()
 		go->pos = Vector3(m_worldWidth * 0.50, m_worldHeight * 1.88, 0) + go->normal * 27 * go->scale.y;
 	}
 
-	//Powerup Entry Points at Top of Map
+	//Powerup Entry Walls at Top of Map
 	this->BuildThickWall(
 		Vector3(0.35, 5, 1)
 		, Vector3(cos(0), sin(0), 0)
@@ -253,19 +253,27 @@ void SceneCollision::Init()
 		, Vector3(m_worldWidth * 0.39, m_worldHeight * 0.92, 0)
 	);
 
-	//Triangle Ledges at the bottom
+	//Powerup actual entries
+	go = FetchGO();
+	go->type = GameObject::GO_POWERUP_ENTRY;
+	go->setActive(true);
+	go->scale.Set(2.5, 2.5, 2.5);
+	go->normal.Set(cos(Math::DegreeToRadian(0)), sin(Math::DegreeToRadian(0)), 0);
+	go->pos = Vector3(m_worldWidth * 0.50, m_worldHeight * 0.885, 0);
 
-	/*GameObject* go;
-	for (int i = 0; i < 8; i++)
-	{
-		go = FetchGO();
-		go->type = GameObject::GO_WALL;
-		go->setActive(true);
-		go->scale.Set(2, 12, 1);
-		go->normal.Set(cos(Math::DegreeToRadian(i * 45)), sin(Math::DegreeToRadian(i * 45)), 0);
-		go->pos = Vector3(m_worldWidth * 0.5, m_worldHeight * 0.5, 0) + (go->normal * 27);
-	}
-	this->BuildThickWall(Vector3(2, 12, 1), Vector3(0, 1, 0), Vector3(m_worldWidth * 0.5, m_worldHeight * 0.5));*/
+	go = FetchGO();
+	go->type = GameObject::GO_POWERUP_ENTRY;
+	go->setActive(true);
+	go->scale.Set(2.3, 2.3, 2.3);
+	go->normal.Set(cos(Math::DegreeToRadian(0)), sin(Math::DegreeToRadian(0)), 0);
+	go->pos = Vector3(m_worldWidth * 0.425, m_worldHeight * 0.895, 0);
+
+	go = FetchGO();
+	go->type = GameObject::GO_POWERUP_ENTRY;
+	go->setActive(true);
+	go->scale.Set(2.3, 2.3, 2.3);
+	go->normal.Set(cos(Math::DegreeToRadian(0)), sin(Math::DegreeToRadian(0)), 0);
+	go->pos = Vector3(m_worldWidth * 0.575, m_worldHeight * 0.895, 0);
 
 	//Left Flipper Walls
 	this->BuildThickWall(
@@ -832,6 +840,17 @@ void SceneCollision::RenderGO(GameObject* go)
 		modelStack.PopMatrix();
 		break;
 	}
+	case GameObject::GO_POWERUP_ENTRY:
+	{
+		modelStack.PushMatrix();
+		modelStack.Translate(go->pos.x, go->pos.y, go->pos.z);
+		float angle = atan2f(go->normal.y, go->normal.x);
+		modelStack.Rotate(90, 1, 0, 0);
+		modelStack.Scale(go->scale.x, go->scale.y, go->scale.z);
+		RenderMesh(meshList[GEO_BALLHOLE], false);
+		modelStack.PopMatrix();
+		break;
+	}
 
 	case GameObject::GO_BREAKABLEWALL:
 	{
@@ -992,7 +1011,7 @@ bool SceneCollision::CheckCollision(GameObject* go1, GameObject* go2) {
 	//Flip it in check
 	regardInternalCollision = !regardInternalCollision;
 
-	if (go2->type == GameObject::GO_BALL)
+	if (go2->type == GameObject::GO_BALL || go2->type == GameObject::GO_POWERUP_ENTRY)
 	{
 		Vector3 displacement = go1->pos - go2->pos;
 		float combinedRadii = go1->scale.x + go2->scale.x;
