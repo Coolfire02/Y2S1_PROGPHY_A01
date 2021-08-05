@@ -582,7 +582,6 @@ void SceneCollision::ReturnBall(GameObject* go)
 	//Exercise 3: implement ReturnGO()
 	go->setActive(false);
 	m_ballCount--;
-	std::cout << "new ball count " << m_ballCount << std::endl;
 	if (m_ballCount <= 0 && ballsRemaining == 0)
 	{
 		switchGameState(GAME_STATE::GAMEOVER);
