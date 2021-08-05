@@ -23,15 +23,14 @@ void SceneCollision::Init()
 {
 	SceneBase::Init();
 
+	difficulty = SceneCollision::EASY;
+
 	//Physics code here
 	m_speed = 1.f;
 
 	Math::InitRNG();
 
 	//Exercise 1: initialize m_objectCount
-	m_ballCount = 0;
-	elapsed = 0.0;
-	score = 0;
 
 	m_ghost = new GameObject(GameObject::GO_BALL);
 
@@ -41,10 +40,6 @@ void SceneCollision::Init()
 	//Calculating aspect ratio
 	m_worldHeight = 100.f;
 	m_worldWidth = m_worldHeight * (float)Application::GetWindowWidth() / Application::GetWindowHeight();
-
-	ballsRemaining = 3;
-	canSpawnBall = true;
-	ballOnSpring = false;
 
 	//Level Layout
 
@@ -103,6 +98,7 @@ void SceneCollision::Init()
 		Vector3(0.71, 20, 1)
 		, Vector3(cos(0), sin(0), 0)
 		, Vector3(m_worldWidth * 0.68, m_worldHeight * 0.20, 0)
+		, GameObject::GO_WALL
 	);
 
 	spring = FetchGO();
@@ -139,6 +135,7 @@ void SceneCollision::Init()
 		Vector3(1.5, 3.15, 1)
 		, Vector3(cos(30), sin(30), 0)
 		, Vector3(m_worldWidth * 0.68, m_worldHeight * 0.475, 0)
+		, GameObject::GO_WALL
 	);
 	//Trigger
 	go = FetchGO();
@@ -161,6 +158,7 @@ void SceneCollision::Init()
 		Vector3(1.5, 2.6, 1)
 		, Vector3(cos(-30), sin(-30), 0)
 		, Vector3(m_worldWidth * 0.316, m_worldHeight * 0.4, 0)
+		, GameObject::GO_WALL
 	);
 
 	//go = FetchGO();
@@ -233,59 +231,78 @@ void SceneCollision::Init()
 		Vector3(0.35, 5, 1)
 		, Vector3(cos(0), sin(0), 0)
 		, Vector3(m_worldWidth * 0.46, m_worldHeight * 0.895, 0)
+		, GameObject::GO_WALL
 	);
 
 	this->BuildThickWall(
 		Vector3(0.35, 5, 1)
 		, Vector3(cos(0), sin(0), 0)
 		, Vector3(m_worldWidth * 0.54, m_worldHeight * 0.895, 0)
+		, GameObject::GO_WALL
 	);
 
 	this->BuildThickWall(
 		Vector3(0.35, 4.5, 1)
 		, Vector3(cos(0), sin(0), 0)
 		, Vector3(m_worldWidth * 0.61, m_worldHeight * 0.92, 0)
+		, GameObject::GO_WALL
 	);
 
 	this->BuildThickWall(
 		Vector3(0.35, 4.5, 1)
 		, Vector3(cos(0), sin(0), 0)
 		, Vector3(m_worldWidth * 0.39, m_worldHeight * 0.92, 0)
+		, GameObject::GO_WALL
 	);
 
 	//Powerup actual entries
+
+	//Multi Coin
 	go = FetchGO();
 	go->type = GameObject::GO_POWERUP_ENTRY;
 	go->setActive(true);
 	go->scale.Set(2.5, 2.5, 2.5);
+	go->powerupType = 0;
 	go->normal.Set(cos(Math::DegreeToRadian(0)), sin(Math::DegreeToRadian(0)), 0);
 	go->pos = Vector3(m_worldWidth * 0.50, m_worldHeight * 0.885, 0);
+	go->powerupOpenDuration = 5.0f;
+	powerup[go->powerupType] = go;
 
+	//Super lot of balls
 	go = FetchGO();
 	go->type = GameObject::GO_POWERUP_ENTRY;
 	go->setActive(true);
 	go->scale.Set(2.3, 2.3, 2.3);
+	go->powerupType = 1;
 	go->normal.Set(cos(Math::DegreeToRadian(0)), sin(Math::DegreeToRadian(0)), 0);
 	go->pos = Vector3(m_worldWidth * 0.425, m_worldHeight * 0.895, 0);
+	go->powerupOpenDuration = 0.0f;
+	powerup[go->powerupType] = go;
 
+	//Repair broken walls
 	go = FetchGO();
 	go->type = GameObject::GO_POWERUP_ENTRY;
 	go->setActive(true);
 	go->scale.Set(2.3, 2.3, 2.3);
+	go->powerupType = 2;
 	go->normal.Set(cos(Math::DegreeToRadian(0)), sin(Math::DegreeToRadian(0)), 0);
 	go->pos = Vector3(m_worldWidth * 0.575, m_worldHeight * 0.895, 0);
+	go->powerupOpenDuration = 0.0f;
+	powerup[go->powerupType] = go;
 
 	//Left Flipper Walls
 	this->BuildThickWall(
 		Vector3(0.5, 5, 1)
 		, Vector3(cos(Math::DegreeToRadian(25)), sin(Math::DegreeToRadian(25)), 0)
 		, Vector3(m_worldWidth * 0.40, m_worldHeight * 0.225, 0)
+		, GameObject::GO_BUMPER
 	);
 
 	this->BuildThickWall(
 		Vector3(0.5, 3.6, 1)
 		, Vector3(cos(Math::DegreeToRadian(70)), sin(Math::DegreeToRadian(70)), 0)
 		, Vector3(m_worldWidth * 0.43, m_worldHeight * 0.17, 0)
+		, GameObject::GO_WALL
 	);
 
 	//Inward arc at Bottom Left of map
@@ -327,12 +344,14 @@ void SceneCollision::Init()
 		Vector3(0.5, 5, 1)
 		, Vector3(cos(Math::DegreeToRadian(155)), sin(Math::DegreeToRadian(155)), 0)
 		, Vector3(m_worldWidth * 0.60, m_worldHeight * 0.225, 0)
+		, GameObject::GO_BUMPER
 	);
 
 	this->BuildThickWall(
 		Vector3(0.5, 3.6, 1)
 		, Vector3(cos(Math::DegreeToRadian(110)), sin(Math::DegreeToRadian(110)), 0)
 		, Vector3(m_worldWidth * 0.57, m_worldHeight * 0.17, 0)
+		, GameObject::GO_WALL
 	);
 
 	//Inward arc at Bottom Right of map
@@ -387,12 +406,47 @@ void SceneCollision::Init()
 	go->normal.Set(cos(Math::DegreeToRadian(90)), sin(Math::DegreeToRadian(90)), 0);
 	go->pos = Vector3(m_worldWidth * 0.642, m_worldHeight * 0.255, 0);
 
-	spawnBall();
+	switchGameState(GAME_STATE::PLAYING);
+}
 
-	for (int i = 0; i < 10; ++i)
+void SceneCollision::switchGameState(GAME_STATE state)
+{
+	gameState = state;
+	if (state == GAME_STATE::PLAYING)
 	{
-		if (spawnPoint())
-			std::cout << "Out" << std::endl;
+		m_ballCount = 0;
+		elapsed = 0.0;
+		score = 0;
+		ballsRemaining = 3;
+		canSpawnBall = true;
+		ballOnSpring = false;
+
+		for (auto& go : m_goList)
+		{
+			if ( (go->type == GameObject::GO_BALL || go->type == GameObject::GO_POINT) && go->isActive())
+			{
+				go->setActive(false);
+				go->type = GameObject::GO_NONE;
+			}
+			else if (go->type == GameObject::GO_BREAKABLEWALL)
+			{
+				go->setHealth(5.0);
+
+			}
+		}
+
+		for (int i = 0; i < 3; ++i)
+		{
+			powerup[i]->powerupLocked = false;
+			powerup[i]->pulledGO = nullptr;
+		}
+
+		spawnBall();
+
+		for (int i = 0; i < 10; ++i)
+		{
+			spawnPoint();
+		}
 	}
 }
 
@@ -413,6 +467,7 @@ bool SceneCollision::spawnBall()
 			go->scale = Vector3(1, 1, 1);
 			go->mass = 2;
 			go->gravity = true;
+			go->invincible = true;
 			return true;
 		}
 	}
@@ -423,7 +478,14 @@ bool SceneCollision::spawnPoint()
 {
 	GameObject* go = FetchGO();
 	go->type = GameObject::GO_POINT;
-	go->scale.Set(0.5, 0.6, 1);
+	if (powerup[0]->powerupActiveDuration > 0.0)
+	{
+		go->scale.Set(0.7, 0.85, 1);
+	}
+	else
+	{
+		go->scale.Set(0.5, 0.6, 1);
+	}
 	go->normal.Set(cos(Math::DegreeToRadian(45)), sin(Math::DegreeToRadian(45)), 0);
 
 	bool occupied = false;
@@ -451,14 +513,14 @@ bool SceneCollision::spawnPoint()
 	return false;
 }
 
-void SceneCollision::BuildThickWall(Vector3 scale, Vector3 normal, Vector3 pos)
+void SceneCollision::BuildThickWall(Vector3 scale, Vector3 normal, Vector3 pos, GameObject::GAMEOBJECT_TYPE wallType)
 {
 	Vector3 NP = Vector3(normal.y, -normal.x, 0);
 
 	//Horizontal
 	GameObject* go;
 	go = FetchGO();
-	go->type = GameObject::GO_WALL;
+	go->type = wallType;
 	go->setActive(true);
 	go->scale.Set(scale.x, scale.y, 1);
 	go->normal.Set(normal.x, normal.y, 0);
@@ -466,7 +528,7 @@ void SceneCollision::BuildThickWall(Vector3 scale, Vector3 normal, Vector3 pos)
 
 	//Vertical
 	go = FetchGO();
-	go->type = GameObject::GO_WALL;
+	go->type = wallType;
 	go->setActive(true);
 	go->scale.Set(scale.y, scale.x, 1);
 	go->normal.Set(normal.y, -normal.x, 0);
@@ -520,6 +582,114 @@ void SceneCollision::ReturnBall(GameObject* go)
 	//Exercise 3: implement ReturnGO()
 	go->setActive(false);
 	m_ballCount--;
+	std::cout << "new ball count " << m_ballCount << std::endl;
+	if (m_ballCount <= 0 && ballsRemaining == 0)
+	{
+		switchGameState(GAME_STATE::GAMEOVER);
+	}
+}
+
+void SceneCollision::activatePowerup(int powerupType)
+{
+	GameObject* go = powerup[powerupType];
+	go->powerupActiveDuration = 7.0;
+	switch (powerupType) {
+		case 0://Money
+			for (auto point : m_goList)
+			{
+				if (point->type == GameObject::GO_POINT)
+				{
+					point->scale.Set(0.7, 0.85, 1);
+				}
+			}
+			break;
+		
+
+		case 1: //Loads of balls
+		{
+			int max = Math::RandIntMinMax(3, 7);
+			for (int i = 0; i < max; ++i)
+			{
+				m_ballCount += 1;
+				GameObject* go;
+				go = FetchGO();
+				go->type = GameObject::GO_BALL;
+				go->setActive(true);
+				go->scale = Vector3(1, 1, 1);
+				go->mass = 2;
+				go->gravity = true;
+				go->setHealth(10.0);
+
+				float ranAngle = Math::DegreeToRadian(Math::RandIntMinMax(-110, -70));
+				Vector3 dir = Vector3(cosf(ranAngle), sinf(ranAngle), 0);
+				go->pos = powerup[powerupType]->pos + dir * (powerup[powerupType]->scale.y + go->scale.y);
+				go->vel = 25 * dir;
+			}
+			break;
+		}
+			
+		
+
+		case 2: //Repair walls
+			for (auto point : m_goList)
+			{
+				if (point->type == GameObject::GO_BREAKABLEWALL)
+				{
+					point->setHealth(5.0);
+				}
+			}
+			break;
+	}
+}
+
+void SceneCollision::updatePowerups(double dt)
+{
+	for (int i = 0; i < 3; ++i)
+	{
+		//Powerup Hole Open Duration
+		if (difficulty == DIFFICULTY::REGULAR)
+		{
+			if (powerup[i]->powerupOpenDuration > 0.0)
+			{
+				powerup[i]->powerupOpenDuration -= dt;
+				if (powerup[i]->powerupOpenDuration <= 0)
+				{
+					int next = i + 1;
+					if (next >= 3)
+						next = 0;
+					powerup[next]->powerupOpenDuration = 5.0f;
+				}
+			}
+		}
+		powerup[i]->powerupOpenDuration = 1.0;
+
+		if (powerup[i]->powerupActiveDuration > 0.0)
+		{
+			powerup[i]->powerupActiveDuration -= dt;
+			if (powerup[i]->powerupActiveDuration <= 0)
+			{
+				switch (i)
+				{
+				case 0: //Money
+				{
+					for (auto point : m_goList)
+					{
+						if (point->type == GameObject::GO_POINT)
+						{
+							point->scale.Set(0.5, 0.6, 1);
+							point->normal.Set(cos(Math::DegreeToRadian(45)), sin(Math::DegreeToRadian(45)), 0);
+						}
+					}
+				}
+					break;
+				case 1: //Super lots of balls
+					break;
+				case 2: //Repair walls
+					break;
+				}
+			}
+		}
+	}
 }
 
 void SceneCollision::Update(double dt)
@@ -533,25 +703,6 @@ void SceneCollision::Update(double dt)
 	float posX = x / w * m_worldWidth;
 	float posY = (h - y) / h * m_worldHeight;
 
-	if (Application::IsKeyPressed('9'))
-	{
-		m_speed = Math::Max(0.f, m_speed - 0.1f);
-	}
-	if (Application::IsKeyPressed('0'))
-	{
-		m_speed += 0.1f;
-	}
-
-	if (Application::IsKeyPressed('B'))
-	{
-		GameObject* temp = FetchGO();
-		temp->setActive(true);
-		temp->type = GameObject::GO_WALL;
-		temp->pos = Vector3(posX, posY, 0);
-		temp->vel = Vector3(0, 0, 0);
-		temp->scale = Vector3(5, 5, 5);
-		temp->mass = 50;
-	}
 
 	if (left_flipper->cooldown > 0.0)
 	{
@@ -581,9 +732,10 @@ void SceneCollision::Update(double dt)
 		}
 	}
 
-	if (Application::IsKeyPressed('E'))
+	if (Application::IsKeyPressed(VK_RETURN))
 	{
-		spawnBall();
+		if(gameState == GAME_STATE::GAMEOVER)
+			switchGameState(GAME_STATE::PLAYING);
 	}
 
 	float springMag = (spring->origin - spring->pos).LengthSquared();
@@ -615,62 +767,7 @@ void SceneCollision::Update(double dt)
 	}
 
 
-
-	//Mouse Section
-	static bool bLButtonState = false;
-	if (!bLButtonState && Application::IsMousePressed(0))
-	{
-		bLButtonState = true;
-		std::cout << "LBUTTON DOWN" << std::endl;
-		std::cout << "posX" << posX / m_worldWidth << " " << "posY" << posY / m_worldHeight << std::endl;
-		m_ghost->setActive(true);
-		m_ghost->pos = Vector3(posX, posY, 0);
-	}
-	else if (bLButtonState && !Application::IsMousePressed(0))
-	{
-		bLButtonState = false;
-		std::cout << "LBUTTON UP" << std::endl;
-
-		//Exercise 6: spawn small GO_BALL
-		GameObject* temp = FetchGO();
-		temp->setActive(true);
-		temp->type = GameObject::GO_BALL;
-		temp->pos = m_ghost->pos;
-		temp->vel = m_ghost->pos - Vector3(posX, posY, 0);
-		temp->gravity = true;
-		temp->vel *= 2;
-		temp->scale = Vector3(1, 1, 1);
-		temp->mass = 2;
-		m_ghost->setActive(false);
-	}
-	static bool bRButtonState = false;
-	if (!bRButtonState && Application::IsMousePressed(1))
-	{
-		bRButtonState = true;
-		std::cout << "posX" << posX << " " << "posY" << posY << std::endl;
-		m_ghost->pos = Vector3(posX, posY, 0);
-		m_ghost->setActive(true);
-
-
-	}
-	else if (bRButtonState && !Application::IsMousePressed(1))
-	{
-		bRButtonState = false;
-		std::cout << "RBUTTON UP" << std::endl;
-
-		//Exercise 10: spawn large GO_BALL
-		GameObject* temp = FetchGO();
-		temp->type = GameObject::GO_BALL;
-		temp->setActive(true);
-		temp->pos = m_ghost->pos;
-		temp->vel = m_ghost->pos - Vector3(posX, posY, 0);
-		temp->gravity = true;
-		temp->scale = Vector3(5, 5, 5);
-		temp->mass = 50;
-		m_ghost->setActive(false);
-	}
-
-
+	updatePowerups(dt);
 
 	//Physics Simulation Section
 
@@ -699,7 +796,17 @@ void SceneCollision::Update(double dt)
 				{
 					if (go->pos.y < 0)
 					{
+						if (go->invincible)
+							spawnBall(); //Spawns new ball on spring after main white balls dies.
 						ReturnBall(go);
+					}
+					else if (!go->invincible)
+					{
+						go->subtractHealth(dt);
+						if (go->getHealth() <= 0)
+						{
+							ReturnBall(go);
+						}
 					}
 				}
 				
@@ -794,16 +901,20 @@ void SceneCollision::UpdateFilpper(GameObject* flipper, double dt)
 
 void SceneCollision::RenderGO(GameObject* go)
 {
+	if (gameState != GAME_STATE::PLAYING)
+		return;
 	switch (go->type)
 	{
 	case GameObject::GO_BALL:
-		//Exercise 4: render a sphere using scale and pos
 		modelStack.PushMatrix();
 		modelStack.Translate(go->pos.x, go->pos.y, go->pos.z);
 		modelStack.Scale(go->scale.x, go->scale.y, go->scale.z);
-		RenderMesh(meshList[GEO_BALL], false);
+		if(go->invincible) //Regular balls
+			RenderMesh(meshList[GEO_BALL], false);
+		else
+			RenderMesh(meshList[GEO_BALL_GREYREDHINT], false);
 		modelStack.PopMatrix();
-		//Exercise 11: think of a way to give balls different colors
+
 		break;
 
 	case GameObject::GO_PILLAR:
@@ -829,6 +940,19 @@ void SceneCollision::RenderGO(GameObject* go)
 		modelStack.PopMatrix();
 		break;
 	}
+
+	case GameObject::GO_BALLEXIT:
+	{
+
+		modelStack.PushMatrix();
+		modelStack.Translate(go->pos.x, go->pos.y, go->pos.z);
+		float angle = atan2f(go->normal.y, go->normal.x);
+		modelStack.Rotate(Math::RadianToDegree(angle), 0, 0, 1);
+		modelStack.Scale(go->scale.x, go->scale.y, go->scale.z);
+		RenderMesh(meshList[GEO_ONEWAYSOLIDWALL_LEFT], true);
+		modelStack.PopMatrix();
+		break;
+	}
 	case GameObject::GO_BUMPER:
 	{
 		modelStack.PushMatrix();
@@ -847,13 +971,32 @@ void SceneCollision::RenderGO(GameObject* go)
 		float angle = atan2f(go->normal.y, go->normal.x);
 		modelStack.Rotate(90, 1, 0, 0);
 		modelStack.Scale(go->scale.x, go->scale.y, go->scale.z);
-		RenderMesh(meshList[GEO_BALLHOLE], false);
+		if (go->powerupOpenDuration > 0)
+		{
+			switch (go->powerupType)
+			{
+			case 0:
+				RenderMesh(meshList[GEO_BALLHOLE_YELLOW], false);
+				break;
+			case 1:
+				RenderMesh(meshList[GEO_BALLHOLE_BLUE], false);
+				break;
+			case 2:
+				RenderMesh(meshList[GEO_BALLHOLE_PINK], false);
+				break;
+			}
+		}else
+			RenderMesh(meshList[GEO_BALLHOLE], false);
 		modelStack.PopMatrix();
 		break;
 	}
 
 	case GameObject::GO_BREAKABLEWALL:
 	{
+		if (go->getHealth() <= 0)
+		{
+			break; //Skip
+		}
 		modelStack.PushMatrix();
 		modelStack.Translate(go->pos.x, go->pos.y, go->pos.z);
 		float angle = atan2f(go->normal.y, go->normal.x);
@@ -953,34 +1096,58 @@ void SceneCollision::Render()
 
 	//Exercise 8c: Render initial and final momentum
 
-	std::ostringstream ss2;
-	ss2.precision(3);
-	ss2 << "Score ";
-	RenderTextOnScreen(meshList[GEO_TEXT], ss2.str(), Color(1, 0.8, 0), 4, 60, 50);
+	if (gameState == GAME_STATE::PLAYING)
+	{
+		std::ostringstream ss2;
+		ss2.precision(3);
+		ss2 << "Score ";
+		RenderTextOnScreen(meshList[GEO_TEXT], ss2.str(), Color(1, 0.8, 0), 4, 60, 50);
 
-	ss2.str("");
-	ss2.precision(3);
-	ss2 << score;
-	RenderTextOnScreen(meshList[GEO_TEXT], ss2.str(), Color(0.9, 0.9, 0.9), 3, 60, 45);
+		ss2.str("");
+		ss2.precision(3);
+		ss2 << score;
+		RenderTextOnScreen(meshList[GEO_TEXT], ss2.str(), Color(0.9, 0.9, 0.9), 3, 60, 45);
 
-	ss2.str("");
-	ss2.precision(3);
-	ss2 << "Balls Left ";
-	RenderTextOnScreen(meshList[GEO_TEXT], ss2.str(), Color(0, 0.8, 0), 2, 60, 38);
+		ss2.str("");
+		ss2.precision(3);
+		ss2 << "Balls Left ";
+		RenderTextOnScreen(meshList[GEO_TEXT], ss2.str(), Color(0, 0.8, 0), 2, 60, 38);
 
-	ss2.str("");
-	ss2.precision(3);
-	ss2 << ballsRemaining;
-	RenderTextOnScreen(meshList[GEO_TEXT], ss2.str(), Color(0.9, 0.9, 0.9), 3, 60, 34);
+		ss2.str("");
+		ss2.precision(3);
+		ss2 << ballsRemaining;
+		RenderTextOnScreen(meshList[GEO_TEXT], ss2.str(), Color(0.9, 0.9, 0.9), 3, 60, 34);
 
-	std::ostringstream ss;
-	ss.precision(2);
-	ss << "FPS ";
-	RenderTextOnScreen(meshList[GEO_TEXT], ss.str(), Color(0.6, 0.6, 0.6), 3, 4, 50);
+		std::ostringstream ss;
+		ss.precision(2);
+		ss << "FPS ";
+		RenderTextOnScreen(meshList[GEO_TEXT], ss.str(), Color(0.6, 0.6, 0.6), 3, 4, 50);
 
-	ss.str("");
-	ss << fps;
-	RenderTextOnScreen(meshList[GEO_TEXT], ss.str(), Color(0.9, 0.9, 0.9), 3, 4, 46);
+		ss.str("");
+		ss << fps;
+		RenderTextOnScreen(meshList[GEO_TEXT], ss.str(), Color(0.9, 0.9, 0.9), 3, 4, 46);
+	}
+	else
+	{
+		std::ostringstream ss2;
+		ss2.precision(3);
+		ss2 << "GAME OVER";
+		RenderTextOnScreen(meshList[GEO_TEXT], ss2.str(), Color(0.75, 0.2, 0.2), 5, 22, 40);
+
+		ss2.str("");
+		ss2.precision(3);
+		ss2 << "Score ";
+		RenderTextOnScreen(meshList[GEO_TEXT], ss2.str(), Color(0.2, 0.9, 0.2), 4, 32, 32);
+
+		ss2.str("");
+		ss2.precision(3);
+		ss2 << score;
+		RenderTextOnScreen(meshList[GEO_TEXT], ss2.str(), Color(0.9, 0.9, 0.9), 3, 32, 28);
+
+		ss2.str("");
+		ss2 << "Press 'ENTER' to play again.";
+		RenderTextOnScreen(meshList[GEO_TEXT], ss2.str(), Color(1, 1.0, 1.0), 2, 19, 24);
+	}
 }
 
 void SceneCollision::Exit()
@@ -1070,9 +1237,15 @@ bool SceneCollision::CheckCollision(GameObject* go1, GameObject* go2) {
 		{
 			if (go2->type == GameObject::GO_BREAKABLEWALL)
 			{
-				go2->subtractHealth(1.0);
-				if(go2->getHealth() <= 0)
-					go2->setActive(false);
+				
+				if (go2->getHealth() > 0)
+				{
+					if (go1->invincible) //Only affected by white balls
+						go2->subtractHealth(1.0);
+				}
+				else {
+					return false; //Cant be seen by player if health < 0
+				}
 			}
 			return true;
 		}
@@ -1130,6 +1303,27 @@ bool SceneCollision::CheckCollision(GameObject* go1, GameObject* go2) {
 
 	else if (go2->type == GameObject::GO_FLIPPER)
 	{
+		{
+			Vector3 N = go2->normal;
+			Vector3 displacement = go2->pos - go1->pos;
+
+
+			if ((displacement).Dot(N) > 0)
+				N = -N; // Make sure N is the inward normal
+
+			//When we check which side is the flipping side that has the power, the wall prevent going in code should work.
+			//
+
+			//Find Vector Projection to center of wall
+			Vector3 w0_b1 = go2->pos - go1->pos;
+			Vector3 projection = (w0_b1.Dot(N) / N.Dot(N)) * N; //Projection onto the inward normal
+			Vector3 line = projection - w0_b1;
+
+			float lengthFromPivot = ((go2->pos + line) - go2->pivot).Length();
+
+			go2->vel = N * lengthFromPivot * go2->angularVelocity;
+		}
+
 		Vector3 N = go2->normal;
 		Vector3 displacement = go2->pos - go1->pos;
 		if (displacement.Dot(N) < 0)
@@ -1141,7 +1335,7 @@ bool SceneCollision::CheckCollision(GameObject* go1, GameObject* go2) {
 			displacement.Dot(N) < go1->scale.x + go2->scale.x &&
 			Math::FAbs(displacement.Dot(NP)) < go2->scale.y
 
-			&& (regardInternalCollision || N.Dot(go1->vel) > 0)
+			&& (regardInternalCollision || N.Dot(go1->vel-go2->vel) > 0)
 			)
 		{
 			return true;
@@ -1172,7 +1366,10 @@ void SceneCollision::CollisionResponse(GameObject* go1, GameObject* go2, double 
 	if (go2->type == GameObject::GO_POINT)
 	{
 		go2->setActive(false);
-		score += 1;
+		if (powerup[0]->powerupActiveDuration > 0.0)
+			score += 3;
+		else
+			score += 1;
 		spawnPoint(); //Spawns another point in map
 	}
 	else if (go2->type == GameObject::GO_BALL)
@@ -1186,6 +1383,50 @@ void SceneCollision::CollisionResponse(GameObject* go1, GameObject* go2, double 
 		go2->vel = u2 - (2 * m1 / (m1 + m2)) * (((u2 - u1).Dot(go2->pos - go1->pos)) / (go2->pos - go1->pos).LengthSquared()) * (go2->pos - go1->pos);
 	
 	}
+
+	else if (go2->type == GameObject::GO_POWERUP_ENTRY)
+	{
+		Vector3 displacement = go2->pos - go1->pos;
+		if (go2->powerupOpenDuration > 0.0 
+			&& !go2->powerupLocked 
+			&& (go2->pos - go1->pos).Dot(go1->vel) > 0
+			&& go1->invincible //Make sure its the white ball 
+			)
+		{
+			go2->powerupLocked = true;
+			go2->pulledGO = go1;
+			score += 10;
+		}
+		if (go2->powerupLocked && go2->pulledGO == go1)
+		{
+			float closeEnough = 0.5;
+			if (displacement.LengthSquared() > closeEnough * closeEnough) {
+				go1->vel = displacement.Normalized() * 2;
+			}
+			else
+			{
+				go2->powerupLocked = false;
+				float ranAngle = Math::DegreeToRadian(Math::RandIntMinMax(-110, -70));
+				Vector3 dir = Vector3(cosf(ranAngle), sinf(ranAngle), 0);
+				go1->pos += dir * (go2->scale.y + go1->scale.y);
+				go1->vel = 32 * dir;
+				go2->pulledGO = nullptr;
+
+				activatePowerup(go2->powerupType);
+			}
+		}
+		else
+		{
+			//Rebounce since not available
+			Vector3 N = (go2->pos - go1->pos).Normalized();
+			go1->vel = go1->vel - (2 * go1->vel).Dot(N) * N;
+
+			//Friction
+			Vector3 fric = (go1->vel).Normalized() * (FRICTION_K)*dt;
+			go1->vel -= fric;
+		}
+	}
+
 	else if (go2->type == GameObject::GO_PILLAR)
 	{
 		Vector3 N = (go2->pos - go1->pos).Normalized();
@@ -1232,7 +1473,7 @@ void SceneCollision::CollisionResponse(GameObject* go1, GameObject* go2, double 
 
 	else if (go2->type == GameObject::GO_BUMPER) //DAMPER
 	{
-		const float MULTI = 0.8;
+		const float MULTI = 0.89;
 		//Prevent internal clipping
 		Vector3 N = go2->normal;
 		if (go1->vel.y < 0)

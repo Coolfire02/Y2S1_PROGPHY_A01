@@ -17,6 +17,7 @@ GameObject::GameObject(GAMEOBJECT_TYPE typeValue)
 	dir(1, 0, 0),
 	momentOfInertia(1.f),
 	angularVelocity(0.f),
+	invincible(false),
 	origin(Vector3()),
 	maxSpringLength(10),
 	springMagnitude(1),
@@ -77,6 +78,7 @@ void GameObject::setActive(bool active) {
 		mass = 1.0;
 		type = GameObject::GO_NONE;
 		gravity = false;
+		invincible = false;
 	}
 }
 

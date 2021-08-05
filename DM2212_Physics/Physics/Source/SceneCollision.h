@@ -8,10 +8,18 @@
 class SceneCollision : public SceneBase
 {
 
-	enum DIRECTION {
-		LEFT,
-		RIGHT
+	enum DIFFICULTY
+	{
+		EASY,
+		REGULAR
 	};
+
+	enum GAME_STATE
+	{
+		PLAYING,
+		GAMEOVER
+	};
+
 
 public:
 	SceneCollision();
@@ -24,17 +32,20 @@ public:
 
 	void RenderGO(GameObject* go);
 
-	void BuildThickWall(Vector3 scale, Vector3 normal, Vector3 pos);
+	void BuildThickWall(Vector3 scale, Vector3 normal, Vector3 pos, GameObject::GAMEOBJECT_TYPE wallType);
 
 	GameObject* FetchGO();
 	void ReturnBall(GameObject* go);
 	bool CheckCollision(GameObject* go1, GameObject* go2);
 	void CollisionResponse(GameObject* go1, GameObject* go2, double dt);
-	
-	void UpdateBallOnSpring(bool to);
 
 	void UpdateFilpper(GameObject* flipper, double dt);
-	void setBreakableWall(DIRECTION dir, int layer);
+
+	void activatePowerup(int powerupType);
+	void updatePowerups(double dt);
+
+	void switchGameState(GAME_STATE state);
+
 
 	bool spawnBall();
 	bool spawnPoint();
@@ -59,7 +70,13 @@ protected:
 	GameObject* right_flipper;
 	GameObject* spring;
 
+	GameObject* powerup[3];
+
 	//Game
+
+	DIFFICULTY difficulty;
+	GAME_STATE gameState;
+
 	int score;
 	int ballsRemaining;
 	bool canSpawnBall;

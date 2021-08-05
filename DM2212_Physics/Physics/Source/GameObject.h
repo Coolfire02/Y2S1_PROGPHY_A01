@@ -62,7 +62,6 @@ struct GameObject
 	Vector3 pivot;
 	Vector3 pivotDir;
 	double cooldown;
-	bool isOnGround;
 	float minAngle;
 	float maxAngle;
 	bool flipperClockwise;
@@ -75,8 +74,13 @@ struct GameObject
 
 	//Powerup being used;
 	bool powerupLocked;
+	GameObject* pulledGO;
+	float powerupOpenDuration;
+	float powerupActiveDuration;
+	int powerupType;
 
 	bool gravity;
+	bool isOnGround;
 	
 	float mass;
 
@@ -85,6 +89,7 @@ struct GameObject
 	GameObject* parentGO;
 
 	bool isMoveable;
+	bool invincible;
 
 private:
 	Mesh* customMesh;

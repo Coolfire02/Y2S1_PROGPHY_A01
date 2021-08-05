@@ -103,13 +103,21 @@ void SceneBase::Init()
 	}
 	meshList[GEO_AXES] = MeshBuilder::GenerateAxes("reference", 1000, 1000, 1000);
 	meshList[GEO_BALL] = MeshBuilder::GenerateSphere("ball", Color(1, 1, 1), 10, 10, 1.f);
+	meshList[GEO_BALL_GREYREDHINT] = MeshBuilder::GenerateSphere("ball_grey", Color(0.6, 0.4, 0.4), 10, 10, 1.f);
 	meshList[GEO_CUBE] = MeshBuilder::GenerateCube("cube", Color(1, 1, 1), 2.f);
+	meshList[GEO_ONEWAYSOLIDWALL_LEFT] = MeshBuilder::GenerateQuad("onewallsolidwall_left", Color(1, 1, 1), 2.f);
+	meshList[GEO_ONEWAYSOLIDWALL_LEFT]->textureID = LoadTGA("Image//Onewaywall.tga");
+
 	meshList[GEO_REDCUBE] = MeshBuilder::GenerateCube("redcube", Color(1, 0.4, 0.4), 2.f);
 	meshList[GEO_YELLOWCUBE] = MeshBuilder::GenerateCube("yellowcube", Color(1, 1, 0.4), 2.f);
 	meshList[GEO_GREENCUBE] = MeshBuilder::GenerateCube("greencube", Color(0.4, 1, 0.4), 2.f);
 
 	meshList[GEO_BLUECUBE] = MeshBuilder::GenerateCube("bluecube", Color(0.4,0.4,0.4), 2.f);
 	meshList[GEO_BALLHOLE] = MeshBuilder::GenerateRing("ballhole", Color(0.7, 0.7, 0.7), 40, 1.f, 0.7f);
+
+	meshList[GEO_BALLHOLE_YELLOW] = MeshBuilder::GenerateRing("ballholeyellow", Color(0.8, 0.8, 0.3), 40, 1.f, 0.7f);
+	meshList[GEO_BALLHOLE_BLUE] = MeshBuilder::GenerateRing("ballholeblue", Color(0.3, 0.3, 0.8), 40, 1.f, 0.7f);
+	meshList[GEO_BALLHOLE_PINK] = MeshBuilder::GenerateRing("ballholeblue", Color(0.8, 0.6, 0.6), 40, 1.f, 0.7f);
 
 	meshList[GEO_POINT] = MeshBuilder::GenerateCube("point", Color(1, 0.9, 0), 2.f);
 	meshList[GEO_TEXT] = MeshBuilder::GenerateText("text", 16, 16);
