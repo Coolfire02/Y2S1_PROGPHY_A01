@@ -1,11 +1,17 @@
-﻿  Application.cpp
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.h(70,21): warning C4305: 'initializing': truncation from 'double' to 'float'
+﻿  Flipper.cpp
+  Application.cpp
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.h(87,27): warning C4305: 'initializing': truncation from 'double' to 'float'
 C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\Application.cpp(169,27): warning C4244: 'argument': conversion from 'float' to '__int64', possible loss of data
   Bullet.cpp
+  Camera.cpp
   Enemy.cpp
-  Flipper.cpp
   GameObject.cpp
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\GameObject.cpp(120,7): warning C4552: '+': result of expression not used
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\GameObject.cpp(123,7): warning C4552: '+': result of expression not used
+  LoadOBJ.cpp
+  LoadTGA.cpp
+  main.cpp
+  Mesh.cpp
+  MeshBuilder.cpp
   SceneAsteroid.cpp
 C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneAsteroid.cpp(76,19): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
 C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneAsteroid.cpp(77,20): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
@@ -78,162 +84,186 @@ C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneAsteroid.cpp(
 C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneAsteroid.cpp(1404,47): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneAsteroid.cpp(1429,89): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   SceneBase.cpp
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneBase.cpp(107,80): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneBase.cpp(108,84): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneBase.cpp(109,84): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneBase.cpp(111,82): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneBase.cpp(112,86): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneBase.cpp(114,74): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneBase.cpp(106,95): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneBase.cpp(111,80): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneBase.cpp(112,84): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneBase.cpp(113,84): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneBase.cpp(115,82): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneBase.cpp(116,84): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneBase.cpp(118,97): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneBase.cpp(119,93): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneBase.cpp(120,93): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneBase.cpp(122,74): warning C4305: 'argument': truncation from 'double' to 'float'
   SceneCollision.cpp
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.h(70,21): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(59,26): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(61,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(61,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(67,25): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(69,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(69,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(74,26): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(76,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(76,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(82,26): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(84,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(84,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(90,25): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(92,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(92,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(97,26): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(99,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(99,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(103,22): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(104,24): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(104,16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(105,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(105,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(111,29): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(113,59): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(113,37): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(133,54): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(133,111): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(134,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(134,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(139,23): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(140,25): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(140,16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(141,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(141,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(147,26): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(149,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(149,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(157,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(157,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(161,22): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(162,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(162,16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(163,49): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(163,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(179,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(179,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(185,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(185,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(191,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(191,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(197,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(197,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(203,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(203,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(209,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(209,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(215,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(215,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(227,54): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(227,111): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(228,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(228,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(233,21): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(234,24): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(234,16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(235,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(235,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(239,21): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(240,24): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(240,16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(241,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(241,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.h(87,27): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(54,26): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(56,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(56,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(62,25): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(64,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(64,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(69,26): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(71,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(71,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(77,26): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(79,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(79,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(85,25): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(87,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(87,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(92,26): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(94,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(94,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(98,22): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(99,24): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(99,16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(100,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(100,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(107,29): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(109,59): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(109,37): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(129,54): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(129,111): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(130,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(130,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(135,23): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(136,25): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(136,16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(137,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(137,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(144,26): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(146,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(146,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(154,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(154,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(158,22): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(159,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(159,16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(160,49): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(160,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(177,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(177,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(183,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(183,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(189,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(189,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(195,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(195,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(201,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(201,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(207,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(207,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(213,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(213,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(225,54): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(225,111): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(226,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(226,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(231,21): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(232,24): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(232,16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(233,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(233,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(238,21): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(239,24): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(239,16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(240,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(240,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(245,23): warning C4305: 'argument': truncation from 'double' to 'float'
 C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(246,24): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(246,16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(247,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(247,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(251,23): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(252,24): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(252,16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(253,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(253,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(260,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(260,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(264,22): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(266,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(266,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(278,26): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(279,54): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(279,111): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(280,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(280,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(291,68): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(291,45): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(307,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(307,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(311,22): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(313,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(313,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(325,26): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(326,54): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(326,111): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(327,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(327,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(338,69): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(338,46): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(355,27): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(357,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(357,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(364,27): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(366,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(366,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(390,54): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(404,27): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(411,77): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(411,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(411,143): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(411,122): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(457,32): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(463,32): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(469,32): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(475,32): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(511,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(512,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(548,49): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(558,50): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(575,61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(581,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(662,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(664,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(728,41): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(738,71): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(744,41): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(754,31): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(867,51): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(867,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(926,67): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(931,71): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(936,67): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(941,71): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(946,70): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(950,70): warning C4305: 'argument': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(1162,59): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(1196,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(1202,26): warning C4305: 'initializing': truncation from 'double' to 'float'
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(1213,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(1281,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(252,23): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(253,24): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(253,16): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(254,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(254,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(267,55): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(267,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(275,29): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(278,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(278,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(286,29): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(289,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(289,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(297,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(297,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(302,22): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(304,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(304,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(317,26): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(318,54): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(318,111): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(319,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(319,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(330,68): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(330,45): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(346,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(346,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(351,22): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(353,48): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(353,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(366,26): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(367,54): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(367,111): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(368,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(368,34): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(379,69): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(379,46): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(396,27): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(398,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(398,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(405,27): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(407,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(407,33): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(466,54): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(483,29): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(487,28): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(495,77): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(495,56): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(495,143): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(495,122): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(541,32): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(547,32): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(553,32): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(559,32): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(601,35): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(622,62): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(653,42): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(667,43): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(678,36): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(702,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(703,13): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(720,49): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(730,50): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(748,61): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(754,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(780,16): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(782,15): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(804,26): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(856,41): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(866,71): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(872,41): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(882,31): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(1042,51): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(1042,32): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(1103,68): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(1108,72): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(1113,68): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(1118,72): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(1123,71): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(1127,71): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(1134,73): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(1139,72): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(1144,72): warning C4305: 'argument': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(1408,62): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(1424,58): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(1435,59): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(1469,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(1475,27): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(1486,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneCollision.cpp(1554,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
   SceneKinematics.cpp
 C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneKinematics.cpp(56,20): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
 C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\SceneKinematics.cpp(61,20): warning C4244: '-=': conversion from 'double' to 'float', possible loss of data
@@ -267,9 +297,12 @@ C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\Scene_Menu.cpp(108
 C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\Scene_Menu.cpp(108,37): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\Scene_Menu.cpp(120,77): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Physics\Source\Scene_Menu.cpp(120,43): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  shader.cpp
+  Compiling...
+  Utility.cpp
+  Weapon.cpp
   Generating code
-  1 of 632 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    3 functions had inline decision re-evaluated but remain unchanged
+  Previous IPDB was built with incompatible compiler, fall back to full compilation.
+  All 639 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   Physics.vcxproj -> C:\Users\tanyo\Y2S1_PROGPHY_A01\DM2212_Physics\Release\Physics.exe
